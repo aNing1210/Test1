@@ -17,7 +17,7 @@
 #' @param verbose If set to TRUE, a feedback on the progress of the calculations is given. Default: FALSE.
 #'
 #' @return Weighted adjacency matrix of inferred network. Element w_ij (row i, column j) gives the importance of the link from regulatory gene i to target gene j.
-#' @useDynLib Test1, .registration = TRUE
+#' @useDynLib Test1
 #' @importFrom stats setNames
 #' @importFrom Biobase ExpressionSet
 #' @docType methods

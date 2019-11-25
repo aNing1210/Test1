@@ -11,7 +11,7 @@
 #'
 #' @return aracne returns a matrix which is the weighted adjacency matrix of the network. In order to display
 #' the network, load the package Rgraphviz and use the following command: plot( as( returned.matrix ,"graphNEL") )
-#' @useDynLib Test1, .registration = TRUE
+#' @useDynLib Test1
 #' @examples
 #' data(syn.data)
 #' mim <- build.mim(syn.data,estimator="spearman")

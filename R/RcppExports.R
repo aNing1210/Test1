@@ -2,11 +2,11 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 clr <- function(x) {
-    .Call('_Scribe_clr', PACKAGE = 'Scribe', x)
+    .Call('_Test1_clr', PACKAGE = 'Test1', x)
 }
 
 kde_cpp <- function(data, k = 1L, b = 1L, pdf = 1L, density_sample_type = 1L) {
-    .Call('_Scribe_kde_cpp', PACKAGE = 'Scribe', data, k, b, pdf, density_sample_type)
+    .Call('_Test1_kde_cpp', PACKAGE = 'Test1', data, k, b, pdf, density_sample_type)
 }
 
 #' @title
@@ -30,7 +30,7 @@ kde_cpp <- function(data, k = 1L, b = 1L, pdf = 1L, density_sample_type = 1L) {
 #' (https://github.com/timnugent/kernel-density).  
 #' @export
 kde <- function(data, k, b, pdf, density_sample_type) {
-    .Call('_Scribe_kde', PACKAGE = 'Scribe', data, k, b, pdf, density_sample_type)
+    .Call('_Test1_kde', PACKAGE = 'Test1', data, k, b, pdf, density_sample_type)
 }
 
 #'  This subroutine calculates the volume of a d-dimensional unit ball for Euclidean norm
@@ -60,7 +60,7 @@ NULL
 #' the second one is the weight calculated based on density_estimate.  
 #' @export
 knn_density <- function(x, y, k) {
-    .Call('_Scribe_knn_density', PACKAGE = 'Scribe', x, y, k)
+    .Call('_Test1_knn_density', PACKAGE = 'Test1', x, y, k)
 }
 
 #' @title
@@ -78,11 +78,11 @@ knn_density <- function(x, y, k) {
 #' @return a numeric value for the d-dimensional unit ball for Euclidean norm
 #' @export a matrix of density estimate, calculated on the center of each grid from the data x and y. 
 knn_density_2d <- function(x, y, nGrids, k) {
-    .Call('_Scribe_knn_density_2d', PACKAGE = 'Scribe', x, y, nGrids, k)
+    .Call('_Test1_knn_density_2d', PACKAGE = 'Test1', x, y, nGrids, k)
 }
 
 digamma_0 <- function(x) {
-    .Call('_Scribe_digamma_0', PACKAGE = 'Scribe', x)
+    .Call('_Test1_digamma_0', PACKAGE = 'Test1', x)
 }
 
 #' @title
@@ -99,7 +99,7 @@ digamma_0 <- function(x) {
 #' @return a numeric value for the d-dimensional unit ball for Euclidean norm
 #' @export
 vd <- function(d) {
-    .Call('_Scribe_vd', PACKAGE = 'Scribe', d)
+    .Call('_Test1_vd', PACKAGE = 'Test1', d)
 }
 
 #' @title
@@ -118,7 +118,7 @@ vd <- function(d) {
 #' @return a numeric value of entropy estimate
 #' @export
 entropy <- function(x, k) {
-    .Call('_Scribe_entropy', PACKAGE = 'Scribe', x, k)
+    .Call('_Test1_entropy', PACKAGE = 'Test1', x, k)
 }
 
 #' @title
@@ -141,7 +141,7 @@ entropy <- function(x, k) {
 #' @return a estimated mutual information value between two variables (x, y)
 #' @export
 mi <- function(x, y, k, normalize) {
-    .Call('_Scribe_mi', PACKAGE = 'Scribe', x, y, k, normalize)
+    .Call('_Test1_mi', PACKAGE = 'Test1', x, y, k, normalize)
 }
 
 #' @title
@@ -166,11 +166,11 @@ mi <- function(x, y, k, normalize) {
 #' @return a estimated conditional mutual information value between two variables (x, y), conditioning on a third variable z. 
 #' @export
 cmi <- function(x, y, z, k, normalize) {
-    .Call('_Scribe_cmi', PACKAGE = 'Scribe', x, y, z, k, normalize)
+    .Call('_Test1_cmi', PACKAGE = 'Test1', x, y, z, k, normalize)
 }
 
 ucmi_cpp <- function(x, y, z, k, method, k_density, bw) {
-    .Call('_Scribe_ucmi_cpp', PACKAGE = 'Scribe', x, y, z, k, method, k_density, bw)
+    .Call('_Test1_ucmi_cpp', PACKAGE = 'Test1', x, y, z, k, method, k_density, bw)
 }
 
 #' @title
@@ -197,11 +197,11 @@ ucmi_cpp <- function(x, y, z, k, method, k_density, bw) {
 #'  
 #' @export
 ucmi <- function(x, y, z, k, method, k_density, bw) {
-    .Call('_Scribe_ucmi', PACKAGE = 'Scribe', x, y, z, k, method, k_density, bw)
+    .Call('_Test1_ucmi', PACKAGE = 'Test1', x, y, z, k, method, k_density, bw)
 }
 
 umi_cpp <- function(x, y, k, method, k_density, bw) {
-    .Call('_Scribe_umi_cpp', PACKAGE = 'Scribe', x, y, k, method, k_density, bw)
+    .Call('_Test1_umi_cpp', PACKAGE = 'Test1', x, y, k, method, k_density, bw)
 }
 
 #' @title
@@ -225,7 +225,7 @@ umi_cpp <- function(x, y, k, method, k_density, bw) {
 #'  
 #' @export
 umi <- function(x, y, k, method, k_density, bw) {
-    .Call('_Scribe_umi', PACKAGE = 'Scribe', x, y, k, method, k_density, bw)
+    .Call('_Test1_umi', PACKAGE = 'Test1', x, y, k, method, k_density, bw)
 }
 
 #' @title
@@ -245,7 +245,7 @@ umi <- function(x, y, k, method, k_density, bw) {
 #' @return a matrix for the condition mutual information estimators between all pairwise variables (x, y) in the data matrix x, y
 #' @export
 di_single_run <- function(x, y, n, uniformalize) {
-    .Call('_Scribe_di_single_run', PACKAGE = 'Scribe', x, y, n, uniformalize)
+    .Call('_Test1_di_single_run', PACKAGE = 'Test1', x, y, n, uniformalize)
 }
 
 #' @title
@@ -267,7 +267,7 @@ di_single_run <- function(x, y, n, uniformalize) {
 #' @return a numeric value for the condition mutual information estimator variables (x, y), conditioning on a third variable, z. 
 #' @export
 di_single_run_conditioned <- function(x, y, z, n, uniformalize) {
-    .Call('_Scribe_di_single_run_conditioned', PACKAGE = 'Scribe', x, y, z, n, uniformalize)
+    .Call('_Test1_di_single_run_conditioned', PACKAGE = 'Test1', x, y, z, n, uniformalize)
 }
 
 #' @title
@@ -287,7 +287,7 @@ di_single_run_conditioned <- function(x, y, z, n, uniformalize) {
 #' @return a numeric value storing the DI from two multiple run variables
 #' @export
 rdi_many_runs <- function(x, y, uniformalize) {
-    .Call('_Scribe_rdi_many_runs', PACKAGE = 'Scribe', x, y, uniformalize)
+    .Call('_Test1_rdi_many_runs', PACKAGE = 'Test1', x, y, uniformalize)
 }
 
 #' @title
@@ -307,7 +307,7 @@ rdi_many_runs <- function(x, y, uniformalize) {
 #' @return a numeric value for the restricted direct information between x and y with a time delay d = 1. 
 #' @export
 rdi_single_run <- function(x, y, d, uniformalize) {
-    .Call('_Scribe_rdi_single_run', PACKAGE = 'Scribe', x, y, d, uniformalize)
+    .Call('_Test1_rdi_single_run', PACKAGE = 'Test1', x, y, d, uniformalize)
 }
 
 #' @title
@@ -329,11 +329,11 @@ rdi_single_run <- function(x, y, d, uniformalize) {
 #' @return a numeric value for the mutual information estimator between two variables (x, y) with a time lag d.
 #' @export
 lmi_single_run <- function(x, y, delay, umi) {
-    .Call('_Scribe_lmi_single_run', PACKAGE = 'Scribe', x, y, delay, umi)
+    .Call('_Test1_lmi_single_run', PACKAGE = 'Test1', x, y, delay, umi)
 }
 
 lmi_multiple_run_cpp <- function(x, y, d = 1L, run_vec = 0L, uniformalize = FALSE) {
-    .Call('_Scribe_lmi_multiple_run_cpp', PACKAGE = 'Scribe', x, y, d, run_vec, uniformalize)
+    .Call('_Test1_lmi_multiple_run_cpp', PACKAGE = 'Test1', x, y, d, run_vec, uniformalize)
 }
 
 #' @title
@@ -357,7 +357,7 @@ lmi_multiple_run_cpp <- function(x, y, d = 1L, run_vec = 0L, uniformalize = FALS
 #' @return a numeric value for the estimated mutual information between two variables (x, y) with a time lag d. 
 #' @export
 lmi_multiple_run <- function(x, y, d, run_vec, umi) {
-    .Call('_Scribe_lmi_multiple_run', PACKAGE = 'Scribe', x, y, d, run_vec, umi)
+    .Call('_Test1_lmi_multiple_run', PACKAGE = 'Test1', x, y, d, run_vec, umi)
 }
 
 #' @title
@@ -381,15 +381,15 @@ lmi_multiple_run <- function(x, y, d, run_vec, umi) {
 #' @return a numeric value for the estimated condition mutual information between variable x and y conditioning on a third variable z 
 #' @export
 rdi_single_run_conditioned <- function(x, y, z, z_delays, d, uniformalize) {
-    .Call('_Scribe_rdi_single_run_conditioned', PACKAGE = 'Scribe', x, y, z, z_delays, d, uniformalize)
+    .Call('_Test1_rdi_single_run_conditioned', PACKAGE = 'Test1', x, y, z, z_delays, d, uniformalize)
 }
 
 extract_max_rdi_value_delay <- function(rdi_result, delays) {
-    .Call('_Scribe_extract_max_rdi_value_delay', PACKAGE = 'Scribe', rdi_result, delays)
+    .Call('_Test1_extract_max_rdi_value_delay', PACKAGE = 'Test1', rdi_result, delays)
 }
 
 calculate_rdi_cpp <- function(expr_data, delays, super_graph, turning_points, method, uniformalize = FALSE) {
-    .Call('_Scribe_calculate_rdi_cpp', PACKAGE = 'Scribe', expr_data, delays, super_graph, turning_points, method, uniformalize)
+    .Call('_Test1_calculate_rdi_cpp', PACKAGE = 'Test1', expr_data, delays, super_graph, turning_points, method, uniformalize)
 }
 
 #' @title
@@ -417,11 +417,11 @@ calculate_rdi_cpp <- function(expr_data, delays, super_graph, turning_points, me
 #' @return a numeric matrix of conditional RDI values for all possible pairs of genes from expr_data. If the gene pairs is not encoded in the super_graph, it will remain as 0 in the matrix.  
 #' @export
 calculate_rdi_cpp_wrap <- function(expr_data, delays, super_graph, turning_points, method, uniformalize) {
-    .Call('_Scribe_calculate_rdi_cpp_wrap', PACKAGE = 'Scribe', expr_data, delays, super_graph, turning_points, method, uniformalize)
+    .Call('_Test1_calculate_rdi_cpp_wrap', PACKAGE = 'Test1', expr_data, delays, super_graph, turning_points, method, uniformalize)
 }
 
 extract_top_incoming_nodes_delays <- function(max_rdi_value, max_rdi_delays, k = 1L) {
-    .Call('_Scribe_extract_top_incoming_nodes_delays', PACKAGE = 'Scribe', max_rdi_value, max_rdi_delays, k)
+    .Call('_Test1_extract_top_incoming_nodes_delays', PACKAGE = 'Test1', max_rdi_value, max_rdi_delays, k)
 }
 
 #' @title
@@ -447,7 +447,7 @@ extract_top_incoming_nodes_delays <- function(max_rdi_value, max_rdi_delays, k =
 #' @return a numeric matrix of conditional RDI values for all possible pairs of genes from expr_data. If the gene pairs is not encoded in the super_graph, it will remain as 0 in the matrix.  
 #' @export
 calculate_conditioned_rdi_cpp_wrap <- function(expr_data, super_graph, max_rdi_value, max_rdi_delays, k, uniformalize) {
-    .Call('_Scribe_calculate_conditioned_rdi_cpp_wrap', PACKAGE = 'Scribe', expr_data, super_graph, max_rdi_value, max_rdi_delays, k, uniformalize)
+    .Call('_Test1_calculate_conditioned_rdi_cpp_wrap', PACKAGE = 'Test1', expr_data, super_graph, max_rdi_value, max_rdi_delays, k, uniformalize)
 }
 
 #' @title
@@ -467,15 +467,15 @@ calculate_conditioned_rdi_cpp_wrap <- function(expr_data, super_graph, max_rdi_v
 #' @return a updated matrix with gene expression smoothed with window size equal to window_size
 #' @export
 smooth_gene <- function(expr_data, window_size = 40L) {
-    .Call('_Scribe_smooth_gene', PACKAGE = 'Scribe', expr_data, window_size)
+    .Call('_Test1_smooth_gene', PACKAGE = 'Test1', expr_data, window_size)
 }
 
 rdi_multiple_run_cpp <- function(x, y, d = 1L, run_vec = 0L, uniformalize = FALSE) {
-    .Call('_Scribe_rdi_multiple_run_cpp', PACKAGE = 'Scribe', x, y, d, run_vec, uniformalize)
+    .Call('_Test1_rdi_multiple_run_cpp', PACKAGE = 'Test1', x, y, d, run_vec, uniformalize)
 }
 
 calculate_rdi_multiple_run_cpp <- function(expr_data, delays, run_vec, super_graph, turning_points = 0L, method = 1L, uniformalize = FALSE) {
-    .Call('_Scribe_calculate_rdi_multiple_run_cpp', PACKAGE = 'Scribe', expr_data, delays, run_vec, super_graph, turning_points, method, uniformalize)
+    .Call('_Test1_calculate_rdi_multiple_run_cpp', PACKAGE = 'Test1', expr_data, delays, run_vec, super_graph, turning_points, method, uniformalize)
 }
 
 #' @title
@@ -503,11 +503,11 @@ calculate_rdi_multiple_run_cpp <- function(expr_data, delays, run_vec, super_gra
 #' @return a numeric matrix of conditional RDI values for all possible pairs of genes from expr_data. If the gene pairs is not encoded in the super_graph, it will remain as 0 in the matrix.  
 #' @export
 calculate_rdi_multiple_run_cpp_wrap <- function(expr_data, delays, run_vec, super_graph, turning_points, method, uniformalize) {
-    .Call('_Scribe_calculate_rdi_multiple_run_cpp_wrap', PACKAGE = 'Scribe', expr_data, delays, run_vec, super_graph, turning_points, method, uniformalize)
+    .Call('_Test1_calculate_rdi_multiple_run_cpp_wrap', PACKAGE = 'Test1', expr_data, delays, run_vec, super_graph, turning_points, method, uniformalize)
 }
 
 rdi_multiple_runs_conditioned_cpp <- function(x, y, z, z_delays, d = 1L, run_vec = 0L, uniformalize = FALSE) {
-    .Call('_Scribe_rdi_multiple_runs_conditioned_cpp', PACKAGE = 'Scribe', x, y, z, z_delays, d, run_vec, uniformalize)
+    .Call('_Test1_rdi_multiple_runs_conditioned_cpp', PACKAGE = 'Test1', x, y, z, z_delays, d, run_vec, uniformalize)
 }
 
 #' @title
@@ -531,11 +531,11 @@ rdi_multiple_runs_conditioned_cpp <- function(x, y, z, z_delays, d = 1L, run_vec
 #' @return a matrix for the condition mutual information estimators between all pairwise variables (x, y) in the data matrix x, y
 #' @export
 rdi_multiple_runs_conditioned <- function(x, y, z, z_delays, d, run_vec, uniformalize) {
-    .Call('_Scribe_rdi_multiple_runs_conditioned', PACKAGE = 'Scribe', x, y, z, z_delays, d, run_vec, uniformalize)
+    .Call('_Test1_rdi_multiple_runs_conditioned', PACKAGE = 'Test1', x, y, z, z_delays, d, run_vec, uniformalize)
 }
 
 calculate_conditioned_rdi_multiple_run_cpp <- function(expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec = 0L, k = 1L, uniformalize = FALSE) {
-    .Call('_Scribe_calculate_conditioned_rdi_multiple_run_cpp', PACKAGE = 'Scribe', expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec, k, uniformalize)
+    .Call('_Test1_calculate_conditioned_rdi_multiple_run_cpp', PACKAGE = 'Test1', expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec, k, uniformalize)
 }
 
 #' @title
@@ -563,18 +563,18 @@ calculate_conditioned_rdi_multiple_run_cpp <- function(expr_data, super_graph, m
 #' @return a numeric matrix of conditional RDI values for all possible pairs of genes from expr_data. If the gene pairs is not encoded in the super_graph, it will remain as 0 in the matrix.  
 #' @export
 calculate_conditioned_rdi_multiple_run_wrap <- function(expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec, k, uniformalize) {
-    .Call('_Scribe_calculate_conditioned_rdi_multiple_run_wrap', PACKAGE = 'Scribe', expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec, k, uniformalize)
+    .Call('_Test1_calculate_conditioned_rdi_multiple_run_wrap', PACKAGE = 'Test1', expr_data, super_graph, max_rdi_value, max_rdi_delays, run_vec, k, uniformalize)
 }
 
 calculate_umi_cpp <- function(expr_data, super_graph, k, method, k_density, bw) {
-    .Call('_Scribe_calculate_umi_cpp', PACKAGE = 'Scribe', expr_data, super_graph, k, method, k_density, bw)
+    .Call('_Test1_calculate_umi_cpp', PACKAGE = 'Test1', expr_data, super_graph, k, method, k_density, bw)
 }
 
 calculate_umi_cpp_wrap <- function(expr_data, super_graph, k, method, k_density, bw) {
-    .Call('_Scribe_calculate_umi_cpp_wrap', PACKAGE = 'Scribe', expr_data, super_graph, k, method, k_density, bw)
+    .Call('_Test1_calculate_umi_cpp_wrap', PACKAGE = 'Test1', expr_data, super_graph, k, method, k_density, bw)
 }
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_Scribe_RcppExport_registerCCallable', PACKAGE = 'Scribe')
+    .Call('_Test1_RcppExport_registerCCallable', PACKAGE = 'Test1')
 })
