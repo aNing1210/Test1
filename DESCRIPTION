@@ -1,0 +1,18 @@
+Package: Test1
+Type: Package
+Title: A test by aNing
+Version: 0.1.0
+Author: aNing
+Maintainer: aNing <2215078079@qq.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3
+LazyData: true
+Encoding: UTF-8
+Depends: R (>= 3.5.0)
+RoxygenNote: 6.1.1
+Imports:MASS,reshape2,infotheo, NMF, dynamicTreeCut, methods,DT,Rtsne,feather,AUCell,foreach,RcisTarget,
+        SummarizedExperiment,Biobase,base,BiocParallel,data.table
+Enhances: doMC
+Suggests: knitr, rmarkdown, doRNG, doParallel, testthat, SCopeLoomR,HiveR
+
