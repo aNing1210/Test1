@@ -30,7 +30,7 @@ aracne <- function( mim, eps=0 )
   else stop("Supply a matrix-like argument")
   if(ncol(mim) != nrow(mim))
     stop("Argument matrix must be square")
-  res <- .Call("aracne", mim, nrow(mim),eps,PACKAGE="Test")
+  res <- .Call("aracne", mim, nrow(mim),eps,PACKAGE="Test1")
   dim(res) <- dim(mim)
   res <- as.matrix(res)
   rownames(res) <- var.id

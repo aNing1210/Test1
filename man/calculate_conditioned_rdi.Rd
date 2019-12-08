@@ -5,12 +5,13 @@
 \title{Calculate conditionally RDI value}
 \usage{
 calculate_conditioned_rdi(cds_subset, super_graph = NULL, rdi_list,
-  top_incoming_k = 1, uniformalize = FALSE, log = TRUE, pseudo_cnt = 1)
+  top_incoming_k = 1, uniformalize = FALSE, log = TRUE,
+  pseudo_cnt = 1)
 }
 \arguments{
 \item{cds_subset}{A cds_subset which has been ordered with Monocle 2}
 
-\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL, 
+\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL,
 all possible pairs of interactions for the genes_data are used, otherwise only the interactions specified in the graph are used.
 Note that the super_graph only accept integer matrix for now (each integer corresponds to a particular gene in the genes_data).}
 
@@ -24,14 +25,14 @@ Note that the super_graph only accept integer matrix for now (each integer corre
 a dataframe storing conditional RDI results. First two columns are the id names for the genes.
 }
 \description{
-This function estimates the conditional RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph) 
-in the pseudotime/time series data, conditioned on the top top_incoming_k incoming nodes. 
-The result from the calculate_rdi function will be used to identify the proper delay for the gene-pair under test corresponds to that 
+This function estimates the conditional RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph)
+in the pseudotime/time series data, conditioned on the top top_incoming_k incoming nodes.
+The result from the calculate_rdi function will be used to identify the proper delay for the gene-pair under test corresponds to that
 with highest RDI as well as the proper delays for the k incoming nodes which corresponds to that with highest RDI values.
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 rdi_res <- calculate_rdi(exprs(lung)[, order(pData(lung)$Pseudotime)], delays = 5)
 lung_res_cRDI <- calculate_conditioned_rdi(lung, rdi_list = rdi_res)
 }

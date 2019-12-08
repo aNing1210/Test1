@@ -4,12 +4,13 @@
 \alias{plot_gene_pairs_in_pseudotime}
 \title{Plot the expression dynamics for gene pairs in pseduotime with one separate kinetic curve for each gene.}
 \usage{
-plot_gene_pairs_in_pseudotime(cds_subset, gene_pairs_mat, min_expr = NULL,
-  cell_size = 1.5, n_row = NULL, n_col = 1, color_by = "State",
-  trend_formula = "~ sm.ns(Pseudotime, df=3)", label_by_short_name = TRUE,
-  relative_expr = TRUE, vertical_jitter = NULL, horizontal_jitter = NULL,
-  fitting_type = c("loess", "spline"), log = TRUE, turning_point = FALSE,
-  data_points = FALSE)
+plot_gene_pairs_in_pseudotime(cds_subset, gene_pairs_mat,
+  min_expr = NULL, cell_size = 1.5, n_row = NULL, n_col = 1,
+  color_by = "State", trend_formula = "~ sm.ns(Pseudotime, df=3)",
+  label_by_short_name = TRUE, relative_expr = TRUE,
+  vertical_jitter = NULL, horizontal_jitter = NULL,
+  fitting_type = c("loess", "spline"), log = TRUE,
+  turning_point = FALSE, data_points = FALSE)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}

@@ -4,9 +4,9 @@
 \alias{plot_gene_pairs_causality}
 \title{Plot the heatmap for the expected value y(t) given x(t - d) and y(t - 1).}
 \usage{
-plot_gene_pairs_causality(cds_subset, gene_pairs_mat, log = FALSE, d = 1,
-  k = 5, grid_num = 25, n_row = NULL, n_col = 1, scales = "free",
-  verbose = FALSE)
+plot_gene_pairs_causality(cds_subset, gene_pairs_mat, log = FALSE,
+  d = 1, k = 5, grid_num = 25, n_row = NULL, n_col = 1,
+  scales = "free", verbose = FALSE)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}

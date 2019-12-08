@@ -4,8 +4,8 @@
 \alias{plot_time_delay}
 \title{Plot a heatmap to demonstrate the hypothetical time delay between any two genes}
 \usage{
-plot_time_delay(cds_subset, use_gene_short_name = TRUE, cluster_row = TRUE,
-  cluster_cols = TRUE)
+plot_time_delay(cds_subset, use_gene_short_name = TRUE,
+  cluster_row = TRUE, cluster_cols = TRUE)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}

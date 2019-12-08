@@ -25,6 +25,6 @@ This subroutine calculates the volume of a d-dimensional unit ball for Euclidean
 }
 \details{
 \code{cmi} takes two random variable x and y and estimated their mutual information conditioned on the third random variable z
-using the KSG estimator. 
+using the KSG estimator.
 It relies on the ANN package to query the kNN with KDTree algorithm.
 }

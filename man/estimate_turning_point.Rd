@@ -21,10 +21,11 @@ A updated cds_subset with a newly added column (turning_point) in pData indicate
 }
 \description{
 This function estimates the inflection point or the gene-wise branch point for each gene in a cell trajectory, without or with branch points respectively
+to do: write a function to integrate BGP with Monocle
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 lung_update <- estimate_turning_point(lung, type = 'value')
 }
 }

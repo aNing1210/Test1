@@ -21,7 +21,7 @@ This function is developed to calculate the temporal RDI or cRDI which can revea
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 super_graph <- create_super_graph(lung)
 }
 }

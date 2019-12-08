@@ -1,11 +1,11 @@
-// this function should be updated to implement the network sparsifier algorithm 
+// this function should be updated to implement the network sparsifier algorithm
 
 // #include <omp.h>
 #include <Rcpp.h>
 using namespace Rcpp;
 
 // This is a simple example of exporting a C++ function to R. You can
-// source this function into an R session using the Rcpp::sourceCpp 
+// source this function into an R session using the Rcpp::sourceCpp
 // function (or via the Source button on the editor toolbar). Learn
 // more about Rcpp at:
 //
@@ -15,20 +15,20 @@ using namespace Rcpp;
 //
 
 // [[Rcpp::export]]
-NumericMatrix clr(NumericMatrix x) {
+NumericMatrix clr_scribe(NumericMatrix x) {
   int n_gene = x.rows();
   int n_col = x.cols();
   if(n_gene != n_col)
   {
     throw std::logic_error( "the input matrix shohuld be a square matrix" );
   }
-  // assume each column as a target 
+  // assume each column as a target
   int i, j;
-  double m_tmp, v_tmp; 
+  double m_tmp, v_tmp;
   NumericVector m(n_gene), v(n_gene);
   for(i = 0; i < n_gene; i++)
   {
-    m_tmp = 0; v_tmp = 0;  
+    m_tmp = 0; v_tmp = 0;
     for(j = 0; j < n_gene; j ++)
     {
       m_tmp += x(i, j);
@@ -51,13 +51,13 @@ NumericMatrix clr(NumericMatrix x) {
     }
   }
 
-  return x; 
+  return x;
 }
 
-// maybe also implement Qi's sparsifer method here 
+// maybe also implement Qi's sparsifer method here
 
 // You can include R code blocks in C++ files processed with sourceCpp
-// (useful for testing and development). The R code will be automatically 
+// (useful for testing and development). The R code will be automatically
 // run after the compilation.
 //
 
@@ -65,7 +65,7 @@ NumericMatrix clr(NumericMatrix x) {
 library(Scribe)
 library(monocle)
 lung <- load_lung()
-clr(exprs(lung)[1:5, 1:5]) 
+clr(exprs(lung)[1:5, 1:5])
 apply(exprs(lung)[1:5, 1:5], 1, function(x) (x - mean(x)) / (sd(x))) # note that apply flip the x, y order
-clr(exprs(lung)) 
+clr(exprs(lung))
 */

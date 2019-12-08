@@ -4,15 +4,19 @@
 \alias{calculate_umi}
 \title{Calculate uMI values}
 \usage{
-calculate_umi(cds_subset, super_graph = NULL, log = TRUE, pseudo_cnt = 1,
-  k = 5L, method = 1L, k_density = 5L, bw = 0)
+calculate_umi(cds_subset, super_graph = NULL, log = TRUE,
+  pseudo_cnt = 1, k = 5L, method = 1L, k_density = 5L, bw = 0)
 }
 \arguments{
 \item{cds_subset}{A cds_subset which has been ordered with Monocle 2}
 
-\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL, 
+\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL,
 all possible pairs of interactions for the genes_data are used, otherwise only the interactions specified in the graph are used.
 Note that the super_graph only accept integer matrix for now (each integer corresponds to a particular gene in the genes_data).}
+
+\item{log}{log}
+
+\item{pseudo_cnt}{pseudo_cnt}
 
 \item{k}{Number for nearest neighbors used in entropy calculation.}
 
@@ -30,7 +34,7 @@ This function estimates the uniformed mutual information value for all gene-pair
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 AT1_lung <- lung[, pData(lung)$State \%in\% c(2, 3)]
 rdi_res <- calculate_umi(AT1_lung, delays = 10, method = 1)
 }

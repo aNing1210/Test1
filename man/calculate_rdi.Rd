@@ -4,16 +4,16 @@
 \alias{calculate_rdi}
 \title{Calculate RDI values}
 \usage{
-calculate_rdi(cds_subset, delays, super_graph = NULL, turning_points = 0,
-  method = 1, uniformalize = FALSE, log = TRUE, pseudo_cnt = 1,
-  smoothing = FALSE)
+calculate_rdi(cds_subset, delays, super_graph = NULL,
+  turning_points = 0, method = 1, uniformalize = FALSE, log = TRUE,
+  pseudo_cnt = 1, smoothing = FALSE)
 }
 \arguments{
 \item{cds_subset}{A cds_subset which has been ordered with Monocle 2}
 
 \item{delays}{A vector of time delays used during information transfer estimation between genes}
 
-\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL, 
+\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL,
 all possible pairs of interactions for the genes_data are used, otherwise only the interactions specified in the graph are used.
 Note that the super_graph only accept integer matrix for now (each integer corresponds to a particular gene in the genes_data).}
 
@@ -22,17 +22,21 @@ Note that the super_graph only accept integer matrix for now (each integer corre
 \item{method}{a list returned from calculate_rdi function.}
 
 \item{uniformalize}{Whether or not you want to use ucmi to calculate rdi. Default to be false.}
+
+\item{log}{log}
+
+\item{pseudo_cnt}{pseudo_cnt}
 }
 \value{
 a list storing a matrix for RDI results, maximal rdi values and the delays corresponding to the maximal rdi values.
 }
 \description{
-This function estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph) 
+This function estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph)
 in the pseudotime/time series data.
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 AT1_lung <- lung[, pData(lung)$State \%in\% c(2, 3)]
 rdi_res <- calculate_rdi(AT1_lung, delays = 10, method = 1)
 }

@@ -4,7 +4,8 @@
 \alias{plot_gene_pairs_scatter}
 \title{Plot the scatterplot for gene pairs across different cells.}
 \usage{
-plot_gene_pairs_scatter(cds_subset, gene_pairs_mat, n_row = NULL, n_col = 1)
+plot_gene_pairs_scatter(cds_subset, gene_pairs_mat, n_row = NULL,
+  n_col = 1)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}

@@ -5,10 +5,11 @@
 \title{Causal network inference limitted to the interaction between informative transcription factors and those to other informative target genes.}
 \usage{
 wired(cds, TF, informative_genes, delays = c(1, 10, 15),
-  include_conditioning = FALSE, smoothing = FALSE, cluster_TFs = FALSE,
-  cluster_targets = FALSE, cluster_TFs_num = NULL,
-  cluster_targets_num = NULL, cluster_num_method = c(NULL, "mcclust",
-  "pamk"), hclust_method = "ward.D2", norm_method = c("log", "vstExprs"),
+  include_conditioning = FALSE, smoothing = FALSE,
+  cluster_TFs = FALSE, cluster_targets = FALSE,
+  cluster_TFs_num = NULL, cluster_targets_num = NULL,
+  cluster_num_method = c(NULL, "mcclust", "pamk"),
+  hclust_method = "ward.D2", norm_method = c("log", "vstExprs"),
   scale = FALSE, scale_max = 3, scale_min = -3, ...)
 }
 \arguments{

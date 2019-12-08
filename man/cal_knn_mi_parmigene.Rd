@@ -2,7 +2,7 @@
 % Please edit documentation in R/other_estimators.R
 \name{cal_knn_mi_parmigene}
 \alias{cal_knn_mi_parmigene}
-\title{Calculate the mutual information between all gene pairs}
+\title{adasCalculate the mutual information between all gene pairs}
 \usage{
 cal_knn_mi_parmigene(cds)
 }
@@ -13,6 +13,7 @@ cal_knn_mi_parmigene(cds)
 a ggplot2 plot object
 }
 \description{
+adallnlnsssssssssssssssssssss
 This function uses the knnmi.all function from package{parmigene} package to calculate the mutual information between all pairs of genes in the data. 
 See the package{parmigene} for details of the knnmi.all function.
 }

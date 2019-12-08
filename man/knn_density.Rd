@@ -14,7 +14,7 @@ knn_density(x, y, k)
 \item{k}{number of nearest neighbors used to estimate the 1d density, default to be 5}
 }
 \value{
-a List where the element is the density estimate (name: density_estimate), 
+a List where the element is the density estimate (name: density_estimate),
 the second one is the weight calculated based on density_estimate.
 }
 \description{

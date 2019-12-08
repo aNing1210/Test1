@@ -13,8 +13,10 @@ zi*zi -> zi as it is already squared
 Added option, skip diagonal for the mean and sd calculation
 */
 
+
 #include "minet.h"
-SEXP clr( SEXP Rmim, SEXP Rsize,SEXP RskipDiagonal)
+
+SEXP clrr( SEXP Rmim, SEXP Rsize,SEXP RskipDiagonal)
 {
   const double *mim;
   const int *size;

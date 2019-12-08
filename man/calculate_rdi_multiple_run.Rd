@@ -15,7 +15,7 @@ calculate_rdi_multiple_run(cds_subset, run_vec = NULL, delays,
 
 \item{delays}{Time lags used to estimate the RDI values (be ready to update this as a matrix or a vector with the same length as the run_vec once we have a way to directly calculate the proper time lag need to be used)}
 
-\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL, 
+\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL,
 all possible pairs of interactions for the genes_data are used, otherwise only the interactions specified in the graph are used.
 Note that the super_graph only accept integer matrix for now (each integer corresponds to a particular gene in the genes_data).}
 
@@ -27,8 +27,8 @@ Note that the super_graph only accept integer matrix for now (each integer corre
 a list with four components: matrix for RDI (dimension is number of genes X length of delays times number of genes), vector of delays, max_rdi_value and max_rdi_delays
 }
 \description{
-This subroutine estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph) 
-in the pseudotime/time series data. If multiple directly related experiments are conducted, we can pass the information of each 
+This subroutine estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph)
+in the pseudotime/time series data. If multiple directly related experiments are conducted, we can pass the information of each
 experiment by the run_vec argument and this function will concatenate those experiments based on run_vec.
 }
 \details{
@@ -36,7 +36,7 @@ experiment by the run_vec argument and this function will concatenate those expe
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 lung_dup <- buildBranchCellDataSet(lung)
 run_vec <- pData(lung_dup)$Branch
 Branch_uniq <- unique(run_vec)

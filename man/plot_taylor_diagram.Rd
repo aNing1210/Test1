@@ -8,8 +8,9 @@ plot_taylor_diagram(ref, RDI, MI, Reference, add = FALSE, col = "red",
   pch = 19, pos.cor = TRUE, xlab = "Entropy", ylab = "MI",
   main = "RDI Taylor Diagram", show.gamma = TRUE, ngamma = 3,
   gamma.col = 8, sd.arcs = 0, ref.sd = FALSE, sd.method = "sample",
-  grad.corr.lines = c(0.2, 0.4, 0.6, 0.8, 0.9), pcex = 1, cex.axis = 1,
-  normalize = FALSE, mar = c(5, 4, 6, 6), text = NULL, ...)
+  grad.corr.lines = c(0.2, 0.4, 0.6, 0.8, 0.9), pcex = 1,
+  cex.axis = 1, normalize = FALSE, mar = c(5, 4, 6, 6),
+  text = NULL, ...)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}
@@ -36,4 +37,5 @@ lung <- load_lung()
 gene_pairs_mat <- matrix(c('H19', 'Ccnd2', 'Ccnd2', 'Scnn1g'), ncol = 2)
 plot_taylor_diagram(cds_exprs[1, ], seq(0, 1, length.out = 100), MI = seq(2, 3, length.out = 100), Entropy = seq(4, 5, length.out = 1))
 }
+ 
 }

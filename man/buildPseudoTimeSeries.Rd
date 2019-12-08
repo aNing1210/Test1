@@ -19,7 +19,7 @@ This function takes a cds (branched or not) and then convert to a pseudotime ser
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 lung_data_list <- buildPseudoTimeSeries(lung, branch_points = 1)
 }
 }

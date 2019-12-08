@@ -17,7 +17,7 @@
 #' @param verbose If set to TRUE, a feedback on the progress of the calculations is given. Default: FALSE.
 #'
 #' @return Weighted adjacency matrix of inferred network. Element w_ij (row i, column j) gives the importance of the link from regulatory gene i to target gene j.
-#' @useDynLib Test1
+
 #' @importFrom stats setNames
 #' @importFrom Biobase ExpressionSet
 #' @docType methods
@@ -181,7 +181,7 @@ setMethod("GENIE3", "ExpressionSet",
                as.integer(ET_randomisation),as.integer(RF_randomisation),
                as.integer(mtry),as.integer(nTrees),
                as.integer(bootstrap_sampling),as.integer(permutation_importance),
-               as.double(vector("double",numRegulators)),package = "Test")[[12]]
+               as.double(vector("double",numRegulators)),package = "Test1")[[12]]
 
       # normalize variable importances
       im <- im / sum(im)
@@ -212,7 +212,7 @@ setMethod("GENIE3", "ExpressionSet",
                                                                                    as.integer(ET_randomisation), as.integer(RF_randomisation),
                                                                                    as.integer(mtry), as.integer(nTrees),
                                                                                    as.integer(bootstrap_sampling), as.integer(permutation_importance),
-                                                                                   as.double(vector("double",numRegulators)),package = "Test")[[12]]
+                                                                                   as.double(vector("double",numRegulators)),package = "Test1")[[12]]
 
                                                                           # normalize variable importances
                                                                           im <- im / sum(im)

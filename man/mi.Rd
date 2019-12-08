@@ -22,7 +22,7 @@ a estimated mutual information value between two variables (x, y)
 This function estimates the mutual information of two random variables, x, y, based on their observed values
 }
 \details{
-\code{mi} takes two random variables x and y to estimate the mutual information between them 
+\code{mi} takes two random variables x and y to estimate the mutual information between them
 using the KSG estimator
 It relies on the ANN package to query the kNN with KDTree algorithm.
 }

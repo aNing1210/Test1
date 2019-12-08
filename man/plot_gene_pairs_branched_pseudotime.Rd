@@ -6,13 +6,13 @@
 \usage{
 plot_gene_pairs_branched_pseudotime(cds_subset, gene_pairs_mat = NULL,
   branch_states = NULL, branch_point = 1, branch_labels = NULL,
-  method = "fitting", min_expr = NULL, cell_size = 0.75, n_row = NULL,
-  n_col = 2, panel_order = NULL, color_by = "State",
+  method = "fitting", min_expr = NULL, cell_size = 0.75,
+  n_row = NULL, n_col = 2, panel_order = NULL, color_by = "State",
   expression_curve_linetype_by = "Branch",
   trend_formula = "~ sm.ns(Pseudotime, df=3) * Branch",
   reducedModelFormulaStr = NULL, label_by_short_name = TRUE,
-  relative_expr = TRUE, fitting_type = c("loess", "spline"), log = TRUE,
-  data_points = FALSE, ...)
+  relative_expr = TRUE, fitting_type = c("loess", "spline"),
+  log = TRUE, data_points = FALSE, ...)
 }
 \arguments{
 \item{cds_subset}{CellDataSet for the experiment}

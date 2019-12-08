@@ -9,14 +9,14 @@
 
 using namespace Rcpp;
 
-// clr
-NumericMatrix clr(NumericMatrix x);
-RcppExport SEXP _Test1_clr(SEXP xSEXP) {
+// clr_scribe
+NumericMatrix clr_scribe(NumericMatrix x);
+RcppExport SEXP _Test1_clr_scribe(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(clr(x));
+    rcpp_result_gen = Rcpp::wrap(clr_scribe(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -894,54 +894,4 @@ RcppExport SEXP _Test1_RcppExport_registerCCallable() {
     R_RegisterCCallable("Test1", "_Test1_umi", (DL_FUNC)_Test1_umi_try);
     R_RegisterCCallable("Test1", "_Test1_RcppExport_validate", (DL_FUNC)_Test1_RcppExport_validate);
     return R_NilValue;
-}
-
-RcppExport void BuildTreeEns(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-
-static const R_CallMethodDef CallEntries[] = {
-    {"_Test1_clr", (DL_FUNC) &_Test1_clr, 1},
-    {"_Test1_kde_cpp", (DL_FUNC) &_Test1_kde_cpp, 5},
-    {"_Test1_kde", (DL_FUNC) &_Test1_kde, 5},
-    {"_Test1_knn_density", (DL_FUNC) &_Test1_knn_density, 3},
-    {"_Test1_knn_density_2d", (DL_FUNC) &_Test1_knn_density_2d, 4},
-    {"_Test1_digamma_0", (DL_FUNC) &_Test1_digamma_0, 1},
-    {"_Test1_vd", (DL_FUNC) &_Test1_vd, 1},
-    {"_Test1_entropy", (DL_FUNC) &_Test1_entropy, 2},
-    {"_Test1_mi", (DL_FUNC) &_Test1_mi, 4},
-    {"_Test1_cmi", (DL_FUNC) &_Test1_cmi, 5},
-    {"_Test1_ucmi_cpp", (DL_FUNC) &_Test1_ucmi_cpp, 7},
-    {"_Test1_ucmi", (DL_FUNC) &_Test1_ucmi, 7},
-    {"_Test1_umi_cpp", (DL_FUNC) &_Test1_umi_cpp, 6},
-    {"_Test1_umi", (DL_FUNC) &_Test1_umi, 6},
-    {"_Test1_di_single_run", (DL_FUNC) &_Test1_di_single_run, 4},
-    {"_Test1_di_single_run_conditioned", (DL_FUNC) &_Test1_di_single_run_conditioned, 5},
-    {"_Test1_rdi_many_runs", (DL_FUNC) &_Test1_rdi_many_runs, 3},
-    {"_Test1_rdi_single_run", (DL_FUNC) &_Test1_rdi_single_run, 4},
-    {"_Test1_lmi_single_run", (DL_FUNC) &_Test1_lmi_single_run, 4},
-    {"_Test1_lmi_multiple_run_cpp", (DL_FUNC) &_Test1_lmi_multiple_run_cpp, 5},
-    {"_Test1_lmi_multiple_run", (DL_FUNC) &_Test1_lmi_multiple_run, 5},
-    {"_Test1_rdi_single_run_conditioned", (DL_FUNC) &_Test1_rdi_single_run_conditioned, 6},
-    {"_Test1_extract_max_rdi_value_delay", (DL_FUNC) &_Test1_extract_max_rdi_value_delay, 2},
-    {"_Test1_calculate_rdi_cpp", (DL_FUNC) &_Test1_calculate_rdi_cpp, 6},
-    {"_Test1_calculate_rdi_cpp_wrap", (DL_FUNC) &_Test1_calculate_rdi_cpp_wrap, 6},
-    {"_Test1_extract_top_incoming_nodes_delays", (DL_FUNC) &_Test1_extract_top_incoming_nodes_delays, 3},
-    {"_Test1_calculate_conditioned_rdi_cpp_wrap", (DL_FUNC) &_Test1_calculate_conditioned_rdi_cpp_wrap, 6},
-    {"_Test1_smooth_gene", (DL_FUNC) &_Test1_smooth_gene, 2},
-    {"_Test1_rdi_multiple_run_cpp", (DL_FUNC) &_Test1_rdi_multiple_run_cpp, 5},
-    {"_Test1_calculate_rdi_multiple_run_cpp", (DL_FUNC) &_Test1_calculate_rdi_multiple_run_cpp, 7},
-    {"_Test1_calculate_rdi_multiple_run_cpp_wrap", (DL_FUNC) &_Test1_calculate_rdi_multiple_run_cpp_wrap, 7},
-    {"_Test1_rdi_multiple_runs_conditioned_cpp", (DL_FUNC) &_Test1_rdi_multiple_runs_conditioned_cpp, 7},
-    {"_Test1_rdi_multiple_runs_conditioned", (DL_FUNC) &_Test1_rdi_multiple_runs_conditioned, 7},
-    {"_Test1_calculate_conditioned_rdi_multiple_run_cpp", (DL_FUNC) &_Test1_calculate_conditioned_rdi_multiple_run_cpp, 7},
-    {"_Test1_calculate_conditioned_rdi_multiple_run_wrap", (DL_FUNC) &_Test1_calculate_conditioned_rdi_multiple_run_wrap, 7},
-    {"_Test1_calculate_umi_cpp", (DL_FUNC) &_Test1_calculate_umi_cpp, 6},
-    {"_Test1_calculate_umi_cpp_wrap", (DL_FUNC) &_Test1_calculate_umi_cpp_wrap, 6},
-    {"_Test1_RcppExport_registerCCallable", (DL_FUNC) &_Test1_RcppExport_registerCCallable, 0},
-    {"BuildTreeEns", (DL_FUNC) &BuildTreeEns, 13},
-    {NULL, NULL, 0}
-};
-
-RcppExport void R_init_Test1(DllInfo *dll) {
-    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
-    R_useDynamicSymbols(dll, FALSE);
 }

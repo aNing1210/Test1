@@ -4,7 +4,8 @@
 \alias{cal_cross_map}
 \title{Perform cross-convergence mapping test for two genes.}
 \usage{
-cal_cross_map(ordered_exprs_mat, lib_colum, target_column, RNGseed = 2016)
+cal_cross_map(ordered_exprs_mat, lib_colum, target_column,
+  RNGseed = 2016)
 }
 \arguments{
 \item{ordered_exprs_mat}{CellDataSet for the experiment}

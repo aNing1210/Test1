@@ -5,15 +5,15 @@
 \title{Calculate conditionally RDI value for multiple runs (replicates) of experiments}
 \usage{
 calculate_conditioned_rdi_multiple_run(cds_subset, run_vec = NULL,
-  super_graph = NULL, rdi_list, top_incoming_k = 1, uniformalize = FALSE,
-  log = TRUE, pseudo_cnt = 1)
+  super_graph = NULL, rdi_list, top_incoming_k = 1,
+  uniformalize = FALSE, log = TRUE, pseudo_cnt = 1)
 }
 \arguments{
 \item{cds_subset}{A cds_subset which has been ordered with Monocle 2}
 
 \item{run_vec}{A vector describes which run (lineage) does the current cell come from. It has the some length as the row length of genes_data.}
 
-\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL, 
+\item{super_graph}{A graph including all possible interactions used for performing the causality inference. When it is NULL,
 all possible pairs of interactions for the genes_data are used, otherwise only the interactions specified in the graph are used.
 Note that the super_graph only accept integer matrix for now (each integer corresponds to a particular gene in the genes_data).}
 
@@ -27,14 +27,14 @@ Note that the super_graph only accept integer matrix for now (each integer corre
 a dataframe storing conditional RDI results. First two columns are the id names for the genes.
 }
 \description{
-This function estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph) 
-in the pseudotime/time series data, conditioned on the top top_incoming_k incoming nodes. If multiple directly related experiments 
+This function estimates the RDI value for all gene-pair combination from the genes_data (or that specified in the super_graph)
+in the pseudotime/time series data, conditioned on the top top_incoming_k incoming nodes. If multiple directly related experiments
 are conducted, we can pass the information of each experiment by the run_vec argument and this function will concatenate those experiments
 based on run_vec.
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 lung_dup <- buildBranchCellDataSet(lung)
 run_vec <- pData(lung_dup)$Branch
 Branch_uniq <- unique(run_vec)

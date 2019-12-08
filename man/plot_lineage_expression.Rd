@@ -4,10 +4,10 @@
 \alias{plot_lineage_expression}
 \title{Visualize gene expression level over lineage tree}
 \usage{
-plot_lineage_expression(cds, gene_names, ddata, lineage_tree, lineage_coord,
-  root_cell, lineage_depth = NULL, expression_threshold = NULL,
-  show_lineage_pair = FALSE, label_x = 0.45, label_y = 1,
-  return_all = FALSE, ...)
+plot_lineage_expression(cds, gene_names, ddata, lineage_tree,
+  lineage_coord, root_cell, lineage_depth = NULL,
+  expression_threshold = NULL, show_lineage_pair = FALSE,
+  label_x = 0.45, label_y = 1, return_all = FALSE, ...)
 }
 \arguments{
 \item{cds}{A cell dataset object. This cds should include genes from gene_names variable (by row

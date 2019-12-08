@@ -19,7 +19,7 @@ dn_sparsifer(W, alpha = 2, lambda = 20, B = 184)
 A new asymmeric matrix which contains a sparse direct network structure estimated based on the network sparsifier.
 }
 \description{
-This function implements the direct network sparsifier algorithm described in the supplementary file of Scribe manuscript. 
+This function implements the direct network sparsifier algorithm described in the supplementary file of Scribe manuscript.
 It relies on the lpSolveAPI package to solve the linear programming problem.
 }
 \examples{

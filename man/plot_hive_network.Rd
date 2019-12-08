@@ -5,10 +5,11 @@
 \title{Make a hive plot}
 \usage{
 plot_hive_network(gene_names, casuality_mat_list, cds_list, group_names,
-  data_group_color = c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00",
-  "#6A3D9A", "#A65628", "#F781BF"), top_edge_num = 100,
+  data_group_color = c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+  "#FF7F00", "#6A3D9A", "#A65628", "#F781BF"), top_edge_num = 100,
   axLab.gpar = grid::gpar(col = "black", fontsize = 6, lwd = 0.5),
-  bkgnd = "white", return_hive_plot_data = FALSE, verbose = FALSE, ...)
+  bkgnd = "white", return_hive_plot_data = FALSE, verbose = FALSE,
+  ...)
 }
 \arguments{
 \item{gene_names}{A vector of gene names whose length should match up with the dimensions of the matrix in the casuality_mat_list.}

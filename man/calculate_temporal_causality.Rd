@@ -5,9 +5,9 @@
 \title{Calculate temporal RDI or conditional RDI (cRDI) values.}
 \usage{
 calculate_temporal_causality(cds_subset, super_graph = NULL,
-  conditioning = FALSE, window_size = 40, delay = 1, smoothing = TRUE,
-  span = 0.1, uniformalize = FALSE, log = TRUE, pseudo_cnt = 1,
-  verbose = FALSE, ...)
+  conditioning = FALSE, window_size = 40, delay = 1,
+  smoothing = TRUE, span = 0.1, uniformalize = FALSE, log = TRUE,
+  pseudo_cnt = 1, verbose = FALSE, ...)
 }
 \arguments{
 \item{cds_subset}{A cds_subset which has been ordered with Monocle 2. Currently it only deals with a linear trajectory.}
@@ -29,7 +29,7 @@ calculate_temporal_causality(cds_subset, super_graph = NULL,
 \item{verbose}{A logical argument to determine whether or not we will print the detailed running information.}
 }
 \value{
-A list of two arrays where the first one is the temporal RDI value and second one is the conditional RDI values. In each array, the first 
+A list of two arrays where the first one is the temporal RDI value and second one is the conditional RDI values. In each array, the first
 dimension corresponds to the sliding window, the second and third dimensions correspond to the genes.
 }
 \description{
@@ -37,7 +37,7 @@ This function is developed to calculate the temporal RDI or cRDI which can revea
 }
 \examples{
 \dontrun{
-lung <- load_lung() 
+lung <- load_lung()
 plot_cell_trajectory(lung)
 plot_cell_trajectory(lung, color_by = 'Time')
 lung_AT1_lineage <- lung[, pData(lung)$State \%in\% c(1, 3)]

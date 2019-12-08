@@ -221,7 +221,7 @@ int min_node_size; /* nombre min d'objets dans un noeud */
 /* parametres du tri: *
  * par defaut, on trie chaque fois localement */
 void (*sort_ls_vector)(int *ls_vector, int start, int end, int att)=quicksort_ls_vector;
-int (*separate_ls_vector)(int best_attribute, union threshold_type best_threshold, int *ls_vector, int start, int end)=separate_ls_vector_local; 
+int (*separate_ls_vector)(int best_attribute, union threshold_type best_threshold, int *ls_vector, int start, int end)=separate_ls_vector_local;
 
 /* methodes d'ensemble */
 
@@ -234,7 +234,7 @@ int store_ensemble=1;
 
 int nb_classes; /* nombre de classes pour la classification */
 
-/* parametres generaux pour la regression */ 
+/* parametres generaux pour la regression */
 
 /* ... */
 
@@ -291,7 +291,7 @@ int build_one_tree() {
   left_successor[index_nodes]=-1;
   right_successor[index_nodes]=-1;
   tree=index_nodes;
-  
+
   index_stack_open_nodes++;
   stack_open_nodes[index_stack_open_nodes][0]=tree;
   stack_open_nodes[index_stack_open_nodes][1]=0;
@@ -303,7 +303,7 @@ int build_one_tree() {
     int start=stack_open_nodes[index_stack_open_nodes][1];
     int end=stack_open_nodes[index_stack_open_nodes][2];
     int nodesize=end-start+1;
-    
+
     /* resume du vecteur */
     summarize_vector(current_learning_set, start, end);
     /* pour missing_values */
@@ -346,7 +346,7 @@ int build_one_tree() {
 		tested_attribute[node]=best_attribute;
 		left_successor[node]=left-node;
 		right_successor[node]=right-node;
-	
+
 		/* on place les nouveaux noeuds sur la pile */
 		/* pas de best_first, on les met betement sur la pile */
 	    stack_open_nodes[index_stack_open_nodes][0]=left;
@@ -357,23 +357,23 @@ int build_one_tree() {
 	    stack_open_nodes[index_stack_open_nodes][1]=borne;
 	    stack_open_nodes[index_stack_open_nodes][2]=end;
 
-  
-      }     
+
+      }
     }
   }
   return tree;
 }
 
 int separate_ls_vector_local(int best_attribute, union threshold_type best_threshold, int *ls_vector, int start, int end) {
-  
+
   while (start!=end) {
     while (start!=end && (check_test(best_attribute,
-				     getattval(object_mapping[ls_vector[start]],best_attribute), 
+				     getattval(object_mapping[ls_vector[start]],best_attribute),
 				     best_threshold))) {
       start++;
     }
     while (start!=end && !(check_test(best_attribute,
-				      getattval(object_mapping[ls_vector[end]],best_attribute), 
+				      getattval(object_mapping[ls_vector[end]],best_attribute),
 				      best_threshold))) {
       end--;
     }
@@ -406,7 +406,7 @@ unsigned long *istack[QUICK_SORT_STACK_SIZE];
 
 void quicksort_ls_vector(int *ls_vector, int start, int end, int att) {
 
-  /* Sorts an array arr[1..n] into ascending numerical order using the Quicksort algorithm. n is input; 
+  /* Sorts an array arr[1..n] into ascending numerical order using the Quicksort algorithm. n is input;
      arr is replaced on output by its sorted rearrangement. (extrait de numerical recipes in c) */
 
   int i,ir=end,j,k,l=start;
@@ -414,9 +414,9 @@ void quicksort_ls_vector(int *ls_vector, int start, int end, int att) {
   int jstack=-1,o;
   int temp;
   float a;
-  
+
   for (;;) {
-    /* Insertion sort when subarray small enough.*/ 
+    /* Insertion sort when subarray small enough.*/
     if (ir-l < M_QS) {
       for (j=l+1;j<=ir;j++) {
 	o=ls_vector[j];
@@ -426,13 +426,13 @@ void quicksort_ls_vector(int *ls_vector, int start, int end, int att) {
 	    break;
 	  ls_vector[i+1]=ls_vector[i];
 	}
-	ls_vector[i+1]=o; 
-      } 
-      if (jstack == -1) 
-	break; 
-      ir=istack[jstack--];  /* Pop stack and begin a new round of partitioning. */ 
-      l=istack[jstack--]; 
-    } else { 
+	ls_vector[i+1]=o;
+      }
+      if (jstack == -1)
+	break;
+      ir=istack[jstack--];  /* Pop stack and begin a new round of partitioning. */
+      l=istack[jstack--];
+    } else {
       k=(l+ir) >> 1; /* Choose median of left, center, and right elements as partitioning element a. */
                      /* Also rearrange so that a[l]<=a[l+1]<=a[ir]. */
 
@@ -449,13 +449,13 @@ void quicksort_ls_vector(int *ls_vector, int start, int end, int att) {
       i=l+1; /* Initialize pointers for partitioning. */
       j=ir;
       o=ls_vector[l+1];
-      a=VAL(o); /* Partitioning element. */ 
-      for (;;) { /* Beginning of innermost loop.*/ 
-	do i++; while (VAL(ls_vector[i]) < a); /* Scan up to  nd element > a. */ 
-	do j--; while (VAL(ls_vector[j]) > a); /* Scan down to  nd element < a. */ 
-	if (j < i) 
+      a=VAL(o); /* Partitioning element. */
+      for (;;) { /* Beginning of innermost loop.*/
+	do i++; while (VAL(ls_vector[i]) < a); /* Scan up to  nd element > a. */
+	do j--; while (VAL(ls_vector[j]) > a); /* Scan down to  nd element < a. */
+	if (j < i)
 	  break; /* Pointers crossed. Partitioning complete. */
-	SWAP(ls_vector[i],ls_vector[j]); /* Exchange elements. */ 
+	SWAP(ls_vector[i],ls_vector[j]); /* Exchange elements. */
       } /* End of innermost loop. */
       ls_vector[l+1]=ls_vector[j]; /* Insert partitioning element. */
       ls_vector[j]=o;
@@ -464,9 +464,9 @@ void quicksort_ls_vector(int *ls_vector, int start, int end, int att) {
 	/*Stack too small in quicksort.*/
 	return;
       }
-      if (ir-i+1 >= j-l) { 
-	istack[jstack]=ir; istack[jstack-1]=i; ir=j-1; 
-      } else { 
+      if (ir-i+1 >= j-l) {
+	istack[jstack]=ir; istack[jstack-1]=i; ir=j-1;
+      } else {
 	istack[jstack]=j-1; istack[jstack-1]=l; l=i;
       }
     }
@@ -514,7 +514,7 @@ void find_the_best_split(int *ls_vector, int start, int end) {
   for(i=0; i<nb_attributes; i++) { /* on considere tous les attributs */
 
     find_a_threshold(attribute_vector[i], ls_vector, start, end);
-    
+
     if ((current_threshold_score>=0.0) && (current_threshold_score>best_threshold_score)) {
       best_threshold_score=current_threshold_score;
       best_threshold_info=current_threshold_info;
@@ -538,7 +538,7 @@ void find_a_split_at_random_et(int *ls_vector, int start, int end) {
   best_attribute=-1;
   best_threshold_score=-1.0;
   best_threshold_info=-1.0;
- 
+
   nb_try=0;
   do {
     nb_try++;
@@ -558,11 +558,11 @@ void find_a_split_at_random_et(int *ls_vector, int start, int end) {
       attribute_vector[random_att_pos]=attribute_vector[remaining_att];
       attribute_vector[remaining_att]=temp;
     }
-    
+
     if (current_threshold_score<0.0)
       /* l'attribut etait constant, ca ne compte pas */
-      nb_try--; 
-    
+      nb_try--;
+
   } while ((remaining_att!=0) && (best_threshold_score<random_split_score_threshold) && (nb_try<nb_of_random_tests));
 }
 
@@ -596,7 +596,7 @@ void find_the_best_split_among_k(int *ls_vector, int start, int end) {
       best_threshold=current_threshold;
       best_attribute=attribute_vector[random_att_pos];
     }
-    
+
     /* swap les attributs dans la liste */
     remaining_att--;
     if (remaining_att!=0) {
@@ -651,7 +651,7 @@ float *get_tree_prediction_vector_classical(int tree, int obj) {
   int current_node=tree;
   while (left_successor[current_node]!=-1) {
     if (check_test(tested_attribute[current_node],
-		   getattval(obj,tested_attribute[current_node]), 
+		   getattval(obj,tested_attribute[current_node]),
 		   threshold[current_node]))
       current_node+=left_successor[current_node];
     else
@@ -798,7 +798,7 @@ int allocate_tree_tables(int nb_of_nodes, int nb_of_leaves, int nb_pred, int tsp
   right_successor=(int *)MyMalloc((size_t)nb_of_nodes*sizeof(int));
   if (right_successor==NULL) {
     free_tree_tables();
-    return 0; 
+    return 0;
   }
   tested_attribute=(int *)MyMalloc((size_t)nb_of_nodes*sizeof(int));
   if (tested_attribute==NULL) {
@@ -813,12 +813,12 @@ int allocate_tree_tables(int nb_of_nodes, int nb_of_leaves, int nb_pred, int tsp
   }
   node_size=(float *)MyMalloc((size_t)nb_of_nodes*sizeof(float));
   if (node_size==NULL) {
-    free_tree_tables();    
+    free_tree_tables();
     return 0;
   }
   threshold=(union threshold_type *)MyMalloc((size_t)nb_of_nodes*sizeof(union threshold_type));
   if (threshold==NULL) {
-    free_tree_tables();    
+    free_tree_tables();
     return 0;
   }
 
@@ -838,7 +838,7 @@ int allocate_tree_tables(int nb_of_nodes, int nb_of_leaves, int nb_pred, int tsp
       free_tree_tables();
       return 0;
     }
-    
+
     /* allocation de la table de score (a ne pas faire si multiregr) */
     if (tsp==1) {
       table_score=allocate_table_score_type(3,nb_pred+1);
@@ -912,7 +912,7 @@ float make_ls_vector_bagging(int tree) {
     int rn=get_random_integer(global_learning_set_size);
     object_weight[rn]+=1.0;
   }
-  
+
   /* on construit le ls en prenant les objets de poids non nuls */
   current_learning_set_size=0;
   for (i=0; i<global_learning_set_size; i++) {
@@ -921,7 +921,7 @@ float make_ls_vector_bagging(int tree) {
       current_learning_set_size++;
     }
   }
-  
+
   return 1.0;
 }
 
@@ -946,7 +946,7 @@ void set_ensemble_method_parameters(int i, int nb_terms, int se, int sewg, float
   store_ensemble=se;
   save_ensemble_while_growing=sewg;
 
-  number_of_ensemble_terms=nb_terms;  
+  number_of_ensemble_terms=nb_terms;
 }
 
 /* pour sauvegarder les ls */
@@ -982,7 +982,7 @@ void init_save_ensemble_ls(int b) {
 float build_one_tree_ensemble(int *ts_vector, int length_ts_vector) {
   int i, t;
   int sum_complexity=0;
-  float current_weight; 
+  float current_weight;
   int nbn=0;
   FILE *fp;
 
@@ -1000,27 +1000,27 @@ float build_one_tree_ensemble(int *ts_vector, int length_ts_vector) {
       return -1.0;
     }
   } else {/* ensemble stocke en memoire totalement */
-    
+
     if (size_current_tree_table <(number_of_ensemble_terms*nbn)) {
       /*memoire trop faible pour construire l'ensemble d'arbres*/
       return -1.0;
     }
     if (number_of_ensemble_terms>MAX_NUMBER_OF_TREES) {
       return -1.0;
-    } 
+    }
   }
 
   if (save_ensemble_while_growing) {
     fp=fopen("temp-ensemble-trees.dat", "wb");
     fwrite(&average_predictions_ltrees, sizeof(float), 1, fp);
   }
-  
+
   /* allocation de la matrice de test si necessaire */
   /* de la taille (length_ts_vector*nb_pred) */
-  
+
   /* initialisation de l'ensemble d'apprentissage */
   make_ls_vector(-1);
-  
+
   /* boucle de construction */
   for (t=0; t<number_of_ensemble_terms; t++) {
     int current_tree;
@@ -1058,7 +1058,7 @@ float build_one_tree_ensemble(int *ts_vector, int length_ts_vector) {
       current_nb_of_ensemble_terms++;
     } else
       clean_all_trees();
-    
+
     if (current_weight==0.0) {
       /* on arrete, le modele precedent est trop mauvais */
       t=number_of_ensemble_terms;
@@ -1074,7 +1074,7 @@ float build_one_tree_ensemble(int *ts_vector, int length_ts_vector) {
       sum_complexity=index_nodes-current_tree+1;
     }
   }
-  
+
   if (save_ensemble_while_growing) {
     fclose(fp);
     fp=fopen("temp-ensemble-nb-trees.dat", "wb");
@@ -1102,11 +1102,11 @@ void clean_all_ensemble () {
 int get_tree_nb_nodes(int tree) {
   int nb_nodes=1;
   int current_node;
-  
+
   index_stack_open_nodes=-1;
   index_stack_open_nodes++;
   stack_open_nodes[index_stack_open_nodes][0]=tree;
-  
+
   while(index_stack_open_nodes>=0) {
     current_node=stack_open_nodes[index_stack_open_nodes][0];
     index_stack_open_nodes--;
@@ -1192,7 +1192,7 @@ int allocate_multiregr_table_score(int nb_goal) {
     free_tree_tables();
     return 0;
   }
-  
+
   table_score_symb_multiregr=allocate_table_score_type(MAX_NUMBER_OF_SYMBOLIC_VALUES,2*nb_goal+1);
   if (table_score_symb_multiregr==NULL) {
     free_tree_tables();
@@ -1230,8 +1230,8 @@ int nb_goal_multiregr;
 void summarize_vector_multiregr(int *vector, int start, int end) {
   int i,j;
   SCORE_TYPE w;
-  
-  
+
+
   for (i=0; i<2*nb_goal_multiregr+1; i++) {
     table_score_multiregr[0][i]=0.0;
   }
@@ -1261,15 +1261,15 @@ SCORE_TYPE compute_multiregr_score_from_table() {
   n_tot_var=0.0;
 
   table_score_multiregr[2][0]=table_score_multiregr[0][0]-table_score_multiregr[1][0];
-  
+
   for (i=0; i<nb_goal_multiregr; i++) {
     table_score_multiregr[2][2*i+1]=table_score_multiregr[0][2*i+1]-table_score_multiregr[1][2*i+1];
     table_score_multiregr[2][2*i+2]=table_score_multiregr[0][2*i+2]-table_score_multiregr[1][2*i+2];
-    
+
     y_tot_var+=fabs(table_score_multiregr[1][2*i+2]-(table_score_multiregr[1][2*i+1]*table_score_multiregr[1][2*i+1])/table_score_multiregr[1][0]);
     n_tot_var+=fabs(table_score_multiregr[2][2*i+2]-(table_score_multiregr[2][2*i+1]*table_score_multiregr[2][2*i+1])/table_score_multiregr[2][0]);
   }
-  
+
   info=v_tot-(y_tot_var+n_tot_var);
 
   return (info/v_tot); /* le score est compris entre 0 et 1. La
@@ -1301,7 +1301,7 @@ int not_significant_test_multiregr() {
 }
 
 
-/* on n'enregistre rien pour le moment, la prédiction sera calculée au moment du test. Ca evite de retenir un grand vecteur 
+/* on n'enregistre rien pour le moment, la prédiction sera calculée au moment du test. Ca evite de retenir un grand vecteur
  * pour chaque feuille (mais ça augmente les temps de calcul pour le test)
  */
 
@@ -1335,13 +1335,13 @@ void find_the_best_threshold_multiregr(int att, int *ls_vector, int start, int e
     table_score_multiregr[1][2*i+1]=0.0;
     table_score_multiregr[1][2*i+2]=0.0;
   }
-  
+
   /* on trie l'ensemble selon l'attribut */
   sort_ls_vector(ls_vector, start, end, att);
 
   /* on parcourt toutes les valeurs de seuils possibles */
   old_val=getattval(object_mapping[ls_vector[start]],att);
-  
+
   for(st=start; st<end; st++) {
     w=object_weight[ls_vector[st]];
     table_score_multiregr[1][0]+=w;
@@ -1352,7 +1352,7 @@ void find_the_best_threshold_multiregr(int att, int *ls_vector, int start, int e
     }
 
     if ((new_val=getattval(object_mapping[ls_vector[st+1]],att))!=old_val) { /* un nouveau seuil a considerer */
-      
+
       current_score=compute_score_from_table();
       if (current_score>best_score) {
 	best_score=current_score;
@@ -1388,7 +1388,7 @@ void summarize_symb_att_multiregr(int att, int *vector, int start, int end) {
       table_score_symb_multiregr[i][2*j+2]=0.0;
     }
   }
-  
+
   /* fill the table with frequency */
   for (i=start; i<=end; i++) {
     SCORE_TYPE w=object_weight[vector[i]];
@@ -1416,7 +1416,7 @@ void find_the_best_threshold_symb_multiregr(int att, int *ls_vector, int start, 
 
   /* Check that all elements do not belong to the same class */
   for (i=0; i<nb_val; i++) {
-    if (table_score_symb_multiregr[i][0]!=0) 
+    if (table_score_symb_multiregr[i][0]!=0)
       nb_val_ls++;
   }
   if (nb_val_ls==1) { /* all objects have the same value of this attribute */
@@ -1434,7 +1434,7 @@ void find_the_best_threshold_symb_multiregr(int att, int *ls_vector, int start, 
       table_score_multiregr[1][2*i+1]=0.0;
       table_score_multiregr[1][2*i+2]=0.0;
     }
-      
+
     eff_v=0;
     for (v=0; v<nb_val; v++) {
       if (table_score_symb_multiregr[v][0]!=0.0) {
@@ -1449,7 +1449,7 @@ void find_the_best_threshold_symb_multiregr(int att, int *ls_vector, int start, 
 	eff_v++;
       }
     }
- 
+
     /* compute the score */
     current_score=compute_score_from_table();
 
@@ -1460,7 +1460,7 @@ void find_the_best_threshold_symb_multiregr(int att, int *ls_vector, int start, 
     }
     add1_threshold_type(&current_subset);
   } while (!(BITN(current_subset,(nb_val_ls-1))));
-	 
+
   if (best_score>=0.0) {
     current_threshold_score=best_score;
     current_threshold_info=best_info;
@@ -1474,7 +1474,7 @@ void find_the_best_threshold_symb_multiregr(int att, int *ls_vector, int start, 
 	}
 	eff_v++;
       }
-    }    
+    }
   } else {
     current_threshold_score=-1.0;
   }
@@ -1489,7 +1489,7 @@ void find_a_threshold_at_random_multiregr(int att, int *ls_vector, int start, in
   float min=getattval(object_mapping[ls_vector[start]],att);
   float max=min;
   SCORE_TYPE w;
-  
+
   current_threshold_score=-1.0;
 
   /* calcule les stats sur l'attribut */
@@ -1500,14 +1500,14 @@ void find_a_threshold_at_random_multiregr(int att, int *ls_vector, int start, in
     else if (val>max)
       max=val;
   }
-  
+
   if (min==max) { /* toutes les valeurs sont egales */
     return;
   }
-  
+
   /* tirage du seuil (uniformément entre min et max) */
   current_threshold.f=max-(max-min)*get_random_float();
-  
+
   /* calcul du score */
   table_score_multiregr[1][0]=0.0;
   for (i=0; i<nb_goal_multiregr; i++) {
@@ -1538,7 +1538,7 @@ void init_multiregr_trees(int n_min, float vmin, int savepred) {
   min_node_size=n_min;
   v_min=vmin;
   summarize_vector=summarize_vector_multiregr;
-  
+
   multiregr_savepred=savepred;
 
   if (savepred==1)
@@ -1579,7 +1579,7 @@ void compute_multiregr_score_from_table_for_varimp(SCORE_TYPE *vi) {
 
     table_score_multiregr[2][2*i+1]=table_score_multiregr[0][2*i+1]-table_score_multiregr[1][2*i+1];
     table_score_multiregr[2][2*i+2]=table_score_multiregr[0][2*i+2]-table_score_multiregr[1][2*i+2];
-    
+
     y_tot_var=fabs(table_score_multiregr[1][2*i+2]-(table_score_multiregr[1][2*i+1]*table_score_multiregr[1][2*i+1])/table_score_multiregr[1][0]);
     n_tot_var=fabs(table_score_multiregr[2][2*i+2]-(table_score_multiregr[2][2*i+1]*table_score_multiregr[2][2*i+1])/table_score_multiregr[2][0]);
     vi[i]=v_tot-(y_tot_var+n_tot_var);
@@ -1603,11 +1603,11 @@ void get_vi_multiregr_separate(int *ts_vector, int start, int end, int borne, SC
       table_score_multiregr[0][2*j+2]+=y*y;
     }
   }
-  
+
   /* calcule v_tot en fait */
-  
+
   if ((start>=borne)||(borne>end)) {
-    /* tous les objets sont a droite ou a gauche -> vi=0 
+    /* tous les objets sont a droite ou a gauche -> vi=0
      * (ne peut arriver qu'a cause d'erreur d'arrondi ?)
      */
     for (i=0; i<nb_goal_multiregr; i++) {
@@ -1644,13 +1644,13 @@ int compute_one_tree_variable_importance_multiregr_separate(int tree, int *ts_ve
     /*Impossible d'allouer de la memoire*/
     return 0;
   } else {
-  	
+
 
 	  index_stack_open_nodes++;
 	  stack_open_nodes[index_stack_open_nodes][0]=tree;
 	  stack_open_nodes[index_stack_open_nodes][1]=0;
 	  stack_open_nodes[index_stack_open_nodes][2]=length_ts_vector-1;
-  
+
 	  while (index_stack_open_nodes>=0) {
 	    int node=stack_open_nodes[index_stack_open_nodes][0];
 	    int start=stack_open_nodes[index_stack_open_nodes][1];
@@ -1669,7 +1669,7 @@ int compute_one_tree_variable_importance_multiregr_separate(int tree, int *ts_ve
 	      /* mis a jour du vecteur */
 	      for (i=0; i<nb_goal_multiregr; i++)
 		attribute_importance[i*nb_attributes+attribute_position[tested_attribute[node]]]+=(weight*vi[i]);
-      
+
 	      /* left and right successors are put on the stack */
 	      index_stack_open_nodes--;
 	      if (obj<0) {
@@ -1704,16 +1704,16 @@ int compute_one_tree_variable_importance_multiregr_separate(int tree, int *ts_ve
 	  }
 
 	  free((SCORE_TYPE *)vi);
-	  
+
 	  return 1;
-  
+
   }
 
 }
 
 int compute_ltrees_variable_importance_multiregr_separate(SCORE_TYPE *attribute_importance, int obj) {
   /* si obj est à -1 -> calcul classique
-   * sinon, on ne parcourt que la branche de l'arbre par laquelle l'objet passe 
+   * sinon, on ne parcourt que la branche de l'arbre par laquelle l'objet passe
    * utile surtout pour un ensemble d'arbre. Permet de retrouver une sorte de branche
    * de tests (floues ou prototype) correspondant à cet objet.
    */
@@ -1725,7 +1725,7 @@ int compute_ltrees_variable_importance_multiregr_separate(SCORE_TYPE *attribute_
   int flag_continue;
 
   /* remplit le vecteur */
-  for (i=0; i<length_ts_vector; i++)  
+  for (i=0; i<length_ts_vector; i++)
     ts_vector[i]=i;
 
   for (i=0; i<nb_attributes; i++) {
@@ -1739,11 +1739,11 @@ int compute_ltrees_variable_importance_multiregr_separate(SCORE_TYPE *attribute_
   if ((current_nb_of_ensemble_terms==0) && (index_nodes>=0)) {
     /* il y a un arbre mais pas d'ensemble. On calcule l'importance de cet arbre uniquement */
 	/* flag_continue is meant to replace the exit(0) that used to be in the function compute_one_tree_variable_importance_multiregr_separate*/
-    flag_continue = compute_one_tree_variable_importance_multiregr_separate(0, ts_vector, length_ts_vector, 1.0, attribute_importance, obj);    
+    flag_continue = compute_one_tree_variable_importance_multiregr_separate(0, ts_vector, length_ts_vector, 1.0, attribute_importance, obj);
   } else {
     for (t=0; t<current_nb_of_ensemble_terms; t++) {
 
-      flag_continue = compute_one_tree_variable_importance_multiregr_separate(ltrees[t], ts_vector, length_ts_vector, ltrees_weight[t], attribute_importance, obj);  
+      flag_continue = compute_one_tree_variable_importance_multiregr_separate(ltrees[t], ts_vector, length_ts_vector, ltrees_weight[t], attribute_importance, obj);
 	  if (flag_continue == 1) {
         sum_weight+=ltrees_weight[t];
 	  }
@@ -1758,8 +1758,8 @@ int compute_ltrees_variable_importance_multiregr_separate(SCORE_TYPE *attribute_
          attribute_importance[i]/=sum_weight;
      }
   }
-  
-  return flag_continue; 
+
+  return flag_continue;
 
 }
 
@@ -1782,12 +1782,12 @@ void set_tree_param(int nm, int et, int rf, int rfk) {
 
   float varmin=0.0;
   /*No need to save the prediction values at the leaves*/
-  int savepred = 0; 
-  	
+  int savepred = 0;
+
   init_multiregr_trees(nm,varmin,savepred);
 
   set_test_classical();
-  
+
   if (et==1) {
     find_a_threshold_num=find_a_threshold_at_random_multiregr;
     find_a_threshold_symb=find_the_best_threshold_symb_multiregr;
@@ -1849,7 +1849,7 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
 {
   /* Necessary for using unif_rand() */
   GetRNGstate();
-	
+
   int i, length_ls_vector, maxnbnodes, flag_continue;
 
   nb_attributes=*nbatt;
@@ -1861,14 +1861,14 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
   /* set the attributes */
   attribute_descriptors=(int *)MyMalloc((size_t)nb_attributes*sizeof(int));
   length_attribute_descriptors=nb_attributes;
-  
+
   for (i=0;i<nb_attributes;i++)
     /* All attributes are assumed to be numerical */
-    attribute_descriptors[i]=0;   
+    attribute_descriptors[i]=0;
 
   attribute_vector=(int *)MyMalloc((size_t)nb_attributes*sizeof(int));
   for (i=0; i<nb_attributes;i++)
-    attribute_vector[i]=i; 
+    attribute_vector[i]=i;
 
   /* Build the LS and the weight vector (init_learning_set) */
 
@@ -1886,7 +1886,7 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
   object_weight=(SCORE_TYPE *)MyMalloc((size_t)length_ls_vector*sizeof(SCORE_TYPE));
   for (i=0;i<length_ls_vector;i++)
     object_weight[i]=1.0;
-  
+
   /* Initialise regression problem */
   nb_goal_multiregr=1;
   core_table_y=Y;
@@ -1894,7 +1894,7 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
   for (i=0;i<nb_goal_multiregr; i++)
     goal_multiregr[i]=i;
   getobjy_multiregr_learn=getobjy_multiregr_learn_R;
-  
+
   /* Setting tree parameters */
   set_tree_param(*nm, *et, *rf, *rfk);
   set_ensemble_param(*nbterms, *bs);
@@ -1907,17 +1907,17 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
   clean_all_trees();
 
   /* Learn an ensemble of trees */
-  
+
   build_one_tree_ensemble(NULL, 0);
 
   /* Re-sort the variables */
   for (i=0; i<nb_attributes;i++)
     attribute_vector[i]=i;
-  
+
   /* Compute variable importances */
-  flag_continue = compute_ltrees_variable_importance_multiregr_separate(vimp,-1); 
-  
-  
+  flag_continue = compute_ltrees_variable_importance_multiregr_separate(vimp,-1);
+
+
   if (flag_continue == 1) {
 
     /* Free memory */
@@ -1926,7 +1926,7 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
     MyFree(goal_multiregr);
     MyFree(object_mapping);
     MyFree(current_learning_set);
- 
+
 
     MyFree(object_weight);
     free_tree_tables();
@@ -1934,30 +1934,32 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
     save_ensemble_ls_vector=NULL;
     MyFree((float *)save_ensemble_ls_weight);
     save_ensemble_ls_weight=NULL;
-	
+
   }
-  
+
   /* Necessary for using unif_rand() */
   PutRNGstate();
 
 }
 
+#include <R_ext/Rdynload.h>
 
+static R_NativePrimitiveArgType myC_t[] = {
+  REALSXP, INTSXP, STRSXP, LGLSXP
+};
 
+static const R_CMethodDef cMethods[] = {
+  {"BuildTreeEns", (DL_FUNC) &BuildTreeEns, 12},
+  {NULL, NULL, 0, NULL}
+};
 
 /***************************/
 /* Register native routine */
 /***************************/
 
-#include <R_ext/Rdynload.h>
-
-static R_CMethodDef cMethods[] = {
-	{"BuildTreeEns",  (DL_FUNC) &BuildTreeEns, 12},
-	{NULL}
-};
 
 
-void R_init_GENIE3(DllInfo *info) {
+void R_init_Test1(DllInfo *info) {
 	/* Register the .C routine. No .Call(), .Fortran() or .External() routines,so pass those arrays as NULL.*/
 	R_registerRoutines(info,cMethods, NULL, NULL, NULL);
 }

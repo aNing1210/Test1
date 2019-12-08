@@ -4,8 +4,8 @@
 \alias{calculate_rdi_cpp_wrap}
 \title{calculate_rdi_cpp_wrap}
 \usage{
-calculate_rdi_cpp_wrap(expr_data, delays, super_graph, turning_points, method,
-  uniformalize)
+calculate_rdi_cpp_wrap(expr_data, delays, super_graph, turning_points,
+  method, uniformalize)
 }
 \arguments{
 \item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene). 

@@ -19,6 +19,6 @@ This subroutine estimates the entropy of a continuous random variable
 }
 \details{
 \code{entropy} takes a continuous random variable and then estimates
-entropy using the KSG estimator. 
+entropy using the KSG estimator.
 It relies on the ANN package to query the kNN with KDTree algorithm.
 }
