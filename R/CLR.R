@@ -7,6 +7,8 @@
 #'
 #' @return clr returns a matrix which is the weighted adjacency matrix of the network. In order to display
 #' the network, load the package Rgraphviz and use the following comand plot( as( returned.matrix,"graphNEL") )
+#' @useDynLib Test1, .registration = TRUE
+#' @importFrom Rcpp sourceCpp
 #' @examples
 #' data(syn.data)
 #' mim <- build.mim(syn.data,estimator="spearman")
@@ -30,7 +32,8 @@ clr<- function( mim,skipDiagonal=1)
     stop("Argument matrix must be square")
   if(!isSymmetric(mim)) #added extra check to verify matrix symetric
     stop("Please enter a symetric matrix")
-  res <- .Call( "clr", mim, nrow(mim),skipDiagonal,PACKAGE="Test1" )
+  res <- .Call( "_Test1_clrr", mim, nrow(mim),skipDiagonal,PACKAGE="Test1" )
+  #res <- clrr(mim, nrow(mim),skipDiagonal)
   dim(res) <- dim(mim)
   res <- as.matrix(res)
   rownames(res) <- var.id

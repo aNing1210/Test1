@@ -202,7 +202,7 @@ calculate_umi <- function(cds_subset, super_graph = NULL, log = TRUE, pseudo_cnt
     }
   }
 
-  uMI <- calculate_umi_cpp_wrap(as.matrix(genes_data), as.matrix(super_graph), k = k, method = method, k_density = k_density, bw = bw) # + noise
+  uMI <- .Call("_Test1_calculate_umi_cpp_wrap", as.matrix(genes_data), as.matrix(super_graph), k = k, method = method, k_density = k_density, bw = bw) # + noise
 
   # assign the name for each dimnames
   dimnames(uMI) <- list(colnames(genes_data), colnames(genes_data))
@@ -294,7 +294,7 @@ calculate_rdi <- function(cds_subset, delays, super_graph = NULL, turning_points
     }
   }
 
-  RDI_list <- calculate_rdi_cpp_wrap(as.matrix(genes_data), delays, as.matrix(super_graph), turning_points, method, uniformalize) # + noise
+  RDI_list <- .Call("_Test1_calculate_rdi_cpp_wrap", as.matrix(genes_data), delays, as.matrix(super_graph), turning_points, method, uniformalize) # + noise
 
   # assign the name for each dimnames
   dimnames(RDI_list$RDI) <- list(colnames(genes_data), rep(colnames(genes_data), length(delays)))
@@ -371,7 +371,7 @@ calculate_conditioned_rdi <- function(cds_subset, super_graph = NULL, rdi_list, 
   }
   max_rdi_value <- rdi_list$max_rdi_value
   max_rdi_delays <- rdi_list$max_rdi_delays
-  cRDI_mat <- calculate_conditioned_rdi_cpp_wrap(genes_data, as.matrix(super_graph), # + noise
+  cRDI_mat <- .Call("_Test1_calculate_conditioned_rdi_cpp_wrap", genes_data, as.matrix(super_graph), # + noise
                                             max_rdi_value, max_rdi_delays, top_incoming_k, uniformalize)
 
   dimnames(cRDI_mat) <- list(colnames(genes_data), colnames(genes_data))
@@ -467,7 +467,7 @@ calculate_rdi_multiple_run <- function(cds_subset, run_vec = NULL, delays, super
     }
   }
 
-  RDI_list <- calculate_rdi_multiple_run_cpp_wrap(as.matrix(genes_data), delays, run_vec, as.matrix(super_graph), turning_points = 0, method, uniformalize)
+  RDI_list <- .Call("_Test1_calculate_rdi_multiple_run_cpp_wrap", as.matrix(genes_data), delays, run_vec, as.matrix(super_graph), turning_points = 0, method, uniformalize)
 
   # assign the name for each dimnames
   dimnames(RDI_list$RDI) <- list(colnames(genes_data), rep(colnames(genes_data), length(delays)))
@@ -557,7 +557,7 @@ calculate_conditioned_rdi_multiple_run <- function(cds_subset, run_vec = NULL, s
   }
   max_rdi_value <- rdi_list$max_rdi_value
   max_rdi_delays <- rdi_list$max_rdi_delays
-  cRDI_mat <- calculate_conditioned_rdi_multiple_run_wrap(genes_data, as.matrix(super_graph),
+  cRDI_mat <- .Call("_Test1_calculate_conditioned_rdi_multiple_run_wrap", genes_data, as.matrix(super_graph),
                                                  max_rdi_value, max_rdi_delays, run_vec, top_incoming_k, uniformalize) # + noise
 
   dimnames(cRDI_mat) <- list(colnames(genes_data), colnames(genes_data))
@@ -626,7 +626,7 @@ calculate_temporal_causality <- function(cds_subset, super_graph = NULL, conditi
     if(verbose)
      message('current window index is ', i)
 
-    rdi_list <- calculate_rdi_multiple_run_cpp(expr_data = data[i:(i + window_size), ], delay = delay, run_vec = run_vec[i:(i + window_size)] - 1,
+    rdi_list <- .Call("_Test1_calculate_rdi_multiple_run_cpp", expr_data = data[i:(i + window_size), ], delay = delay, run_vec = run_vec[i:(i + window_size)] - 1,
                                                super_graph = as.matrix(super_graph), turning_points = 0, method = 1, uniformalize) #* 100 + noise
 
     if(conditioning) {

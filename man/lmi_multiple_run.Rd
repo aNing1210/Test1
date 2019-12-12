@@ -24,7 +24,7 @@ a numeric value for the estimated mutual information between two variables (x, y
 This subroutine calculates the lagged mutual information with multiple realization of the same processes.
 }
 \details{
-\code{lmi_multiple_run} takes two random variables x and y, each has multiple realization of the same process and estimated their mutual information with a time lag d. 
-using the KSG estimator. 
+\code{lmi_multiple_run} takes two random variables x and y, each has multiple realization of the same process and estimated their mutual information with a time lag d.
+using the KSG estimator.
 It relies on the ANN package to query the kNN with KDTree algorithm.
 }

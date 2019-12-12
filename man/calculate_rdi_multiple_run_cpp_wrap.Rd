@@ -8,17 +8,17 @@ calculate_rdi_multiple_run_cpp_wrap(expr_data, delays, run_vec,
   super_graph, turning_points, method, uniformalize)
 }
 \arguments{
-\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene). 
+\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene).
 The rows are ordered according to time, from earliest to latest.}
 
 \item{delays}{An integer vector storing the time delays between pairs of variables you would like to try.}
 
 \item{super_graph}{An integer matrix where each row is the variable IDs or gene pairs you would like to estimate restricted direct information (RDI) from.}
 
-\item{turning_points}{Either 0 or a numeric vector describing the inflection point (linear trajectory) or branch point (bifurcation point) for each gene. 
+\item{turning_points}{Either 0 or a numeric vector describing the inflection point (linear trajectory) or branch point (bifurcation point) for each gene.
 If the turning_point for each gene is provided, the time delay will be estimated based on the turning point.}
 
-\item{method}{An integer of either 1 or 2 to determine which information metric will be used to quantify the causality. 
+\item{method}{An integer of either 1 or 2 to determine which information metric will be used to quantify the causality.
 If method is 1, then lagged mutual information will be used; if method is 2, then the restricted direct information will be used.}
 
 \item{uniformalize}{Whether or not you want to use ucmi to calculate rdi. Default to be false.}
@@ -30,6 +30,6 @@ a numeric matrix of conditional RDI values for all possible pairs of genes from 
 This function estimates the DIRECTED mutual information for all gene pairs in the expr_data matrix when you have a SINGLE run of the processes
 }
 \details{
-\code{calculate_rdi_multiple_run_cpp_wrap}, similar to calculate_rdi_cpp_wrap, takes an expression matrix (expr_data) and possible gene pairs (encoded in super_graph) to estimate the restricted 
+\code{calculate_rdi_multiple_run_cpp_wrap}, similar to calculate_rdi_cpp_wrap, takes an expression matrix (expr_data) and possible gene pairs (encoded in super_graph) to estimate the restricted
 direct information based on the time delay which can be estimated from the turning_point vector. It, however, differs to calculate_rdi_cpp_wrap, in that it can concatenate different experiments (runs) into a single run of the data for causality estimation.
 }

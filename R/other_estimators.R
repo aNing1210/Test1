@@ -139,7 +139,7 @@ cal_knn_mi <- function(cds, k = 5) {
 
     mclapply(combn_mat_split, function(x, time_series, k = k){
     col_names <- colnames(time_series)[x]
-    mi(as.matrix(time_series[, col_names[1]], ncol = 1), 
+    .Call("_Test1_mi", as.matrix(time_series[, col_names[1]], ncol = 1), 
        as.matrix(time_series[, col_names[1]], ncol = 1), 
        k = k, normalize = F)
   }, time_series = expr_data, k = k, mc.cores = detectCores() - 2)

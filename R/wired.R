@@ -193,10 +193,10 @@ wired <- function(cds, TF, informative_genes,
     
     all_pairwise_gene <- tmp[tmp[, 1] != tmp[, 2], ] - 1 # convert to C++ index
 
-    RDI_res <- calculate_rdi_cpp_wrap(as.matrix(exprs_data), delays = delays, super_graph = as.matrix(all_pairwise_gene), turning_points = 0, method = 1, uniformalize = F) # run RDI 
+    RDI_res <- .Call("_Test1_calculate_rdi_cpp_wrap", as.matrix(exprs_data), delays = delays, super_graph = as.matrix(all_pairwise_gene), turning_points = 0, method = 1, uniformalize = F) # run RDI 
     
     if(include_conditioning) {
-      cRDI_res <- calculate_conditioned_rdi_cpp_wrap(as.matrix(exprs_data), super_graph = as.matrix(all_pairwise_gene), 
+      cRDI_res <- .Call("_Test1_calculate_conditioned_rdi_cpp_wrap", as.matrix(exprs_data), super_graph = as.matrix(all_pairwise_gene), 
                                                      max_rdi_value = RDI_res$max_rdi_value, max_rdi_delays = RDI_res$max_rdi_delays, k = 1, uniformalize = FALSE) # run cRDI 
     }
   } else {

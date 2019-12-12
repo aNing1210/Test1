@@ -15,9 +15,8 @@
 #' @param nTrees Number of trees in an ensemble for each target gene. Default: 1000.
 #' @param nCores Number of cores to use for parallel computing. Default: 1.
 #' @param verbose If set to TRUE, a feedback on the progress of the calculations is given. Default: FALSE.
-#'
+#' @useDynLib Test1, .registration = TRUE
 #' @return Weighted adjacency matrix of inferred network. Element w_ij (row i, column j) gives the importance of the link from regulatory gene i to target gene j.
-
 #' @importFrom stats setNames
 #' @importFrom Biobase ExpressionSet
 #' @docType methods
@@ -176,12 +175,12 @@ setMethod("GENIE3", "ExpressionSet",
       x <- exprMatrixT[,theseRegulatorNames]
       y <- exprMatrixT[,targetName]
 
-      im <- .C("BuildTreeEns",as.integer(num.samples),as.integer(numRegulators),
+      im <- .C("BuildTreeEns", as.integer(num.samples),as.integer(numRegulators),
                as.single(c(x)),as.single(c(y)),as.integer(nmin),
                as.integer(ET_randomisation),as.integer(RF_randomisation),
                as.integer(mtry),as.integer(nTrees),
                as.integer(bootstrap_sampling),as.integer(permutation_importance),
-               as.double(vector("double",numRegulators)),package = "Test1")[[12]]
+               as.double(vector("double",numRegulators)))[[12]]
 
       # normalize variable importances
       im <- im / sum(im)
@@ -212,7 +211,7 @@ setMethod("GENIE3", "ExpressionSet",
                                                                                    as.integer(ET_randomisation), as.integer(RF_randomisation),
                                                                                    as.integer(mtry), as.integer(nTrees),
                                                                                    as.integer(bootstrap_sampling), as.integer(permutation_importance),
-                                                                                   as.double(vector("double",numRegulators)),package = "Test1")[[12]]
+                                                                                   as.double(vector("double",numRegulators)))[[12]]
 
                                                                           # normalize variable importances
                                                                           im <- im / sum(im)

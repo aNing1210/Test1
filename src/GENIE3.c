@@ -1,3 +1,4 @@
+#include <R.h>
 
 /* Wrapper of Pierre Geurts' C code for learning trees
  *
@@ -16,7 +17,6 @@
  *             - replaced rand() with unif_rand()
  */
 
-#include <R.h>
 
 /*#include <math.h>*/
 /*#include <stdio.h>*/
@@ -1845,6 +1845,8 @@ void set_ensemble_param(int nbterms, int bs) {
 // Ouput argument:
 //  - variable importance values
 
+
+
 void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, int *nm, int *et, int *rf, int *rfk, int *nbterms, int *bs, int *fsrf, SCORE_TYPE *vimp)
 {
   /* Necessary for using unif_rand() */
@@ -1942,24 +1944,22 @@ void BuildTreeEns(int *nbobj, int *nbatt, CORETABLE_TYPE *X, CORETABLE_TYPE *Y, 
 
 }
 
-#include <R_ext/Rdynload.h>
-
-static R_NativePrimitiveArgType myC_t[] = {
-  REALSXP, INTSXP, STRSXP, LGLSXP
-};
-
-static const R_CMethodDef cMethods[] = {
-  {"BuildTreeEns", (DL_FUNC) &BuildTreeEns, 12},
-  {NULL, NULL, 0, NULL}
-};
-
 /***************************/
 /* Register native routine */
 /***************************/
 
+#include <R_ext/Rdynload.h>
+
+static R_CMethodDef cMethods[] = {
+  {"BuildTreeEns",  (DL_FUNC) &BuildTreeEns, 12},
+  {NULL}
+};
 
 
-void R_init_Test1(DllInfo *info) {
-	/* Register the .C routine. No .Call(), .Fortran() or .External() routines,so pass those arrays as NULL.*/
-	R_registerRoutines(info,cMethods, NULL, NULL, NULL);
+void R_init_GENIE3(DllInfo *info) {
+  /* Register the .C routine. No .Call(), .Fortran() or .External() routines,so pass those arrays as NULL.*/
+  R_registerRoutines(info,cMethods, NULL, NULL, NULL);
+  R_useDynamicSymbols(info, FALSE);
 }
+
+

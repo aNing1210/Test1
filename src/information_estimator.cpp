@@ -538,7 +538,6 @@ List cmi(SEXP x, SEXP y, SEXP z, SEXP k, SEXP normalize)
 }
 
 // List ucmi_res = ucmi_cpp(x_cpp, y_cpp, z_cpp, k_cpp, method_cpp, k_density_cpp, bw_cpp);
-// [[Rcpp::interfaces(r, cpp)]]
 // [[Rcpp::export]]
 List ucmi_cpp(const NumericMatrix& x, const NumericMatrix& y, NumericMatrix z, int k, int method, int k_density, double bw){ // , NumericVector weight const NumericMatrix& z,
 
@@ -702,7 +701,7 @@ List ucmi(SEXP x, SEXP y, SEXP z, SEXP k, SEXP method, SEXP k_density, SEXP bw) 
   return ucmi_res;
 }
 
-// [[Rcpp::interfaces(r, cpp)]]
+
 // [[Rcpp::export]]
 double umi_cpp(const NumericMatrix& x, const NumericMatrix& y, int k, int method, int k_density, double bw) // , NumericVector weight
 {

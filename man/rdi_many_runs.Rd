@@ -20,7 +20,7 @@ a numeric value storing the DI from two multiple run variables
 This function estimates the DIRECTED mutual information from X to Y when you have multiple run of the processes.
 }
 \details{
-\code{rdi_many_runs} takes two random variables (with the same multiple realization of the two processes) and estimate 
+\code{rdi_many_runs} takes two random variables (with the same multiple realization of the two processes) and estimate
 the direct information between them at each time point. It then sums up those information estimators. This function can
 only be used when you have hundreds runs of the same time-series experiment.
 }

@@ -8,7 +8,7 @@ calculate_conditioned_rdi_multiple_run_wrap(expr_data, super_graph,
   max_rdi_value, max_rdi_delays, run_vec, k, uniformalize)
 }
 \arguments{
-\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene). 
+\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene).
 The rows are ordered according to time, from earliest to latest.}
 
 \item{super_graph}{An integer matrix where each row is the variable IDs or gene pairs you would like to estimate restricted direct information (RDI) from.}
@@ -30,6 +30,6 @@ a numeric matrix of conditional RDI values for all possible pairs of genes from 
 This function estimates the conditional DIRECTED mutual information for all gene pairs in the expr_data matrix when you have a SINGLE run of the processes.
 }
 \details{
-\code{calculate_conditioned_rdi_multiple_run_wrap}, similar to calculate_conditioned_rdi_cpp_wrap, takes an expression matrix (expr_data) and possible gene pairs (encoded in super_graph), as well as the matrices of maximal rdi value or the delays corresponding to those values to 
+\code{calculate_conditioned_rdi_multiple_run_wrap}, similar to calculate_conditioned_rdi_cpp_wrap, takes an expression matrix (expr_data) and possible gene pairs (encoded in super_graph), as well as the matrices of maximal rdi value or the delays corresponding to those values to
 estimate the conditional restricted direct information, conditioning on top k incoming nodes. It, however, differs to calculate_conditioned_rdi_cpp_wrap, in that it can concatenate different experiments (runs) into a single run of the data for causality estimation.
 }

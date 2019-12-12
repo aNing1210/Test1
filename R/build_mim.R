@@ -16,7 +16,6 @@
 #'
 #'
 #' @return build_mim returns the mutual information matrix.
-#' @useDynLib Test1
 #' @importFrom stats cor
 #' @examples
 #' data(syn.data)

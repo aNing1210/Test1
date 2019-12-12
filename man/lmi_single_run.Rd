@@ -22,7 +22,7 @@ a numeric value for the mutual information estimator between two variables (x, y
 This subroutine calculates the lagged mutual information
 }
 \details{
-\code{lmi_single_run} takes two random variable x and y and estimated their mutual information with a time lag d. 
-using the KSG estimator. 
+\code{lmi_single_run} takes two random variable x and y and estimated their mutual information with a time lag d.
+using the KSG estimator.
 It relies on the ANN package to query the kNN with KDTree algorithm.
 }

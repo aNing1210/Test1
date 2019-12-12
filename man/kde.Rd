@@ -18,7 +18,7 @@ kde(data, k, b, pdf, density_sample_type)
 \item{density_sample_type}{Where do you want to calculate the kde density. 1 = Original data points (default); 2 = on a pre-defined grid.}
 }
 \value{
-a NumericMatrix where the element is the density estimate (name: density_estimate), 
+a NumericMatrix where the element is the density estimate (name: density_estimate),
 the second one is the weight calculated based on density_estimate. This function is based on from Tim Nugent
 (https://github.com/timnugent/kernel-density).
 }
@@ -26,8 +26,8 @@ the second one is the weight calculated based on density_estimate. This function
 This subroutine calculates the 2d density for a two dimensional matrix using kernel density estimator.
 }
 \details{
-\code{kde} takes a 2D matrix and uses kernel density estimator to calculate the density 
-at location of the original data points (default) or a grid of points. For a one dimension matrix, 
-the grid is calculated on 1001 evenly spaced points while for a two dimensional matrix, it will be 
+\code{kde} takes a 2D matrix and uses kernel density estimator to calculate the density
+at location of the original data points (default) or a grid of points. For a one dimension matrix,
+the grid is calculated on 1001 evenly spaced points while for a two dimensional matrix, it will be
 calculated on 201 evenly spaced points on each dimension (201 x 201 points in total).
 }

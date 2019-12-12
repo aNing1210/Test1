@@ -7,7 +7,7 @@
 smooth_gene(expr_data, window_size = 40L)
 }
 \arguments{
-\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene). 
+\item{expr_data}{a matrix for all variables in a time-series where each row is a time point and each column is a variable (for example, a gene).
 The rows are ordered according to time, from earliest to latest.}
 
 \item{window_size}{Integer value for the smoothing window used for calculating the moving average.}
